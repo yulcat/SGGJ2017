@@ -14,19 +14,25 @@ public class SGGameend : SGSingleton<SGGameend> {
 	public Text usrnametext;
 
 	// Use this for initialization
-	void Start () {
-		usrnametext.text = "유저 닉네임 : " + username;
-		usrscoretext.text = "유저 스코어 : " + userscore;
-		
-	}
+	void OnEnable () {
+        SetData("", "0");
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
+    public void SetData(string userName, string userScore)
+    {
+        usrnametext.text = "유저 닉네임 : " + userName;
+        usrscoretext.text = "유저 스코어 : " + userScore;
+    }
+
 	public void Tologinbtn(){
-		SceneManager.LoadScene("login");
+		SceneManager.LoadScene("LogIn");
 
 
 	}

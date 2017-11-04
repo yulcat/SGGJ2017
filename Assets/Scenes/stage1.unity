@@ -2039,12 +2039,12 @@ Prefab:
     - target: {fileID: 224469358306872784, guid: 6a40c906fb22e4e7b8927ce9492dae64,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 224469358306872784, guid: 6a40c906fb22e4e7b8927ce9492dae64,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 224469358306872784, guid: 6a40c906fb22e4e7b8927ce9492dae64,
         type: 2}
@@ -3445,7 +3445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &657912339
 Transform:
   m_ObjectHideFlags: 0
@@ -6822,15 +6822,20 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114089072377873284, guid: 539f3564def864b989da1965a136bad0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224633226340780128, guid: 539f3564def864b989da1965a136bad0,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 224633226340780128, guid: 539f3564def864b989da1965a136bad0,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 224633226340780128, guid: 539f3564def864b989da1965a136bad0,
         type: 2}
@@ -6944,6 +6949,31 @@ Prefab:
     - target: {fileID: 1655744301082574, guid: 539f3564def864b989da1965a136bad0, type: 2}
       propertyPath: m_Name
       value: EndCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089072377873284, guid: 539f3564def864b989da1965a136bad0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089072377873284, guid: 539f3564def864b989da1965a136bad0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089072377873284, guid: 539f3564def864b989da1965a136bad0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1314707725}
+    - target: {fileID: 114089072377873284, guid: 539f3564def864b989da1965a136bad0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Tologinbtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089072377873284, guid: 539f3564def864b989da1965a136bad0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114624577229842022, guid: 539f3564def864b989da1965a136bad0, type: 2}
