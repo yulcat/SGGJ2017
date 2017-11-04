@@ -101,14 +101,12 @@ public class SGCharacter : MonoBehaviour
 
     public void DownMoveSpeed(float multiply, MoveSpeedDown from)
     {
-        print("Down");
         tars.Add(from, multiply);
         currentMoveSpeed = tars.Values.Min() * moveSpeed;
     }
 
     public void BackMoveSpeed(MoveSpeedDown from)
     {
-        print("back");
         tars.Remove(from);
         if (tars.Count == 0)
             currentMoveSpeed = moveSpeed;
