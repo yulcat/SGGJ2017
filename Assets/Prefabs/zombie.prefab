@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4570583397491622}
   - component: {fileID: 114372447996443458}
   - component: {fileID: 50130349839030128}
-  - component: {fileID: 114102627596226512}
   - component: {fileID: 58431068650416556}
   m_Layer: 0
   m_Name: zombie
@@ -293,21 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6858cf66a7b994595924eae8ed5648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114102627596226512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1083756913110904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63bb8b4c6f360f342a8935698107cec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 100
-  moveSpeed: 2
-  hitEffect: 
-  sightLength: 3
+  stun: 0
 --- !u!114 &114372447996443458
 MonoBehaviour:
   m_ObjectHideFlags: 1

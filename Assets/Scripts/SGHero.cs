@@ -57,6 +57,7 @@ public class SGHero : SGCharacter
             heroDisposable.Clear();
             SGGameManager.Instance.HeroDie();
             movable = false;
+            GetComponent<Rigidbody2D>().simulated = false;
         }
         else
             myAnimator.SetTrigger("Hit");
