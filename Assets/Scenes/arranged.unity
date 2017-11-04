@@ -3900,36 +3900,6 @@ Prefab:
       propertyPath: m_Name
       value: Press
       objectReference: {fileID: 0}
-    - target: {fileID: 23671114058673336, guid: 11bd363388a3e4f948474f6bb513f86d,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8aea0f7f3a3274a96a95460dffec6671, type: 2}
-    - target: {fileID: 1751914731944484, guid: 11bd363388a3e4f948474f6bb513f86d, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4640196825299220, guid: 11bd363388a3e4f948474f6bb513f86d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4640196825299220, guid: 11bd363388a3e4f948474f6bb513f86d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1998778464904104, guid: 11bd363388a3e4f948474f6bb513f86d, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298741424357008, guid: 11bd363388a3e4f948474f6bb513f86d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -6.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 23671114058673336, guid: 11bd363388a3e4f948474f6bb513f86d,
-        type: 2}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11bd363388a3e4f948474f6bb513f86d, type: 2}
   m_IsPrefabParent: 0
