@@ -36,6 +36,8 @@ GameObject:
   - component: {fileID: 4004311819428402}
   - component: {fileID: 120730203845601718}
   - component: {fileID: 114467652756915402}
+  - component: {fileID: 61545908871126840}
+  - component: {fileID: 114591875761194894}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
@@ -142,6 +144,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955021624288440}
   m_Mesh: {fileID: 4300000, guid: df5cd4540c1c64a5e863b1686ee5748d, type: 3}
+--- !u!61 &61545908871126840
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650223182734580}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 5.000001}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.70000017, y: 10.700003}
+  m_EdgeRadius: 0
 --- !u!114 &114467652756915402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +182,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LengthMultiplier: 0.4
   TimeMultiplier: -1
+--- !u!114 &114591875761194894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650223182734580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f043936eb781140831b65027b3b05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  stun: 0
 --- !u!120 &120730203845601718
 LineRenderer:
   m_ObjectHideFlags: 1
