@@ -58,10 +58,14 @@ public class SGGameClear : MonoBehaviour {
 		SGSoundManager.Instance.PlaySounds(7);
 		yield return new WaitForSeconds(0.7f);
 		SGSoundManager.Instance.PlaySounds(7);
-		ScoreText.SetActive(true);
+		ScoreText.SetActive(true); // 여기서 최종 점수를 서버로 보낼 것 
 		yield return new WaitForSeconds(0.7f);
-		SGSoundManager.Instance.PlaySounds(7);
-		nextbtn.SetActive(true);
+		if (stagenumber != 5){ 
+			SGSoundManager.Instance.PlaySounds(7);
+			nextbtn.SetActive(true);
+		else
+			SceneManager.LoadScene("ending");// 스테이지 5를 깨면 엔딩씬으로 보내자 
+		}
 	}
 
 	public void nextscenebtn(){
@@ -72,9 +76,9 @@ public class SGGameClear : MonoBehaviour {
 
 	public void texts(){
 
-		TimeTextUI.text = "남은 시간 : " + SGGameManager.Instance.stageTime;
-		HPTextUI.text = "남은 HP :"; 
-		ScoreTextUI.text = "점수 : ";
+		TimeTextUI.text = "남은 시간 : "  ; //남은 시간 추가할 것 
+		HPTextUI.text = "남은 HP :"; // 남은 hp 추가 할것 
+		ScoreTextUI.text = "점수 : "; // 점수 계산해서 보여줄 것 
 
 	}
 
