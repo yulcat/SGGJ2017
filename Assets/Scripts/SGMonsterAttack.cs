@@ -12,7 +12,7 @@ public class SGMonsterAttack : MonoBehaviour
     void OnEnable()
     {
         guid = new System.Guid();
-        gameObject.OnTriggerEnter2DAsObservable().Where(_ => _.GetComponent<SGHero>() != null).
+        Observable.Merge(gameObject.OnTriggerEnter2DAsObservable(), gameObject.OnTriggerStay2DAsObservable()).Where(_ => _.GetComponent<SGHero>() != null).
             Subscribe(_ =>
             {
                 _.GetComponent<SGHero>().AnyDamage(5f, guid, stun);
