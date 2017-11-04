@@ -307,4 +307,5 @@ MonoBehaviour:
   maxHP: 100
   moveSpeed: 2
   hitEffect: BloodSpit
+  monsterType: 0
   sightLength: 3
