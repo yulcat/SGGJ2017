@@ -7,7 +7,7 @@
         [
             {
                 "wave": 1,
-                "starttime": 0,                
+                "starttime": 5,                
                 "prefab": "bigZombie",
                 "Count": 1,
                 "duration": 1

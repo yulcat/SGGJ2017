@@ -49,9 +49,6 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     // Use this for initialization
     void Start() {
-
-
-
         //게임스테이트에 따라
         gameState.Subscribe(_ =>
         {
@@ -144,7 +141,16 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     void StageClear()
     {
+        int remainTime = timerSlider.GetRemainTime();
         timerSlider.TimerStop();
+
+        //게임 스코어 결산
+        int currentScore = ((int)hero.GetCurrentHP * 100) + (remainTime * 100);
+        SGGameData.Instance.GameScore += currentScore;
+
+
+
+
         GameClearPanel.SetActive(true);
 
         /*
