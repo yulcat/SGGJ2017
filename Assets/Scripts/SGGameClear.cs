@@ -65,7 +65,9 @@ public class SGGameClear : MonoBehaviour {
 			nextbtn.SetActive(true);
 		}
 		else{
-			SceneManager.LoadScene("ending");// 스테이지 5를 깨면 엔딩씬으로 보내자 
+            // 스테이지 5를 깨면 처음씬으로 보내자 
+            LeanTween.delayedCall(3f, () => { SceneManager.LoadScene("StageStartEnd"); });
+			
 		}
 	}
 
