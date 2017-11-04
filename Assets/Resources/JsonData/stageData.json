@@ -9,8 +9,8 @@
                 "wave": 1,
                 "starttime": 0,                
                 "prefab": "zombie",
-                "Count": 1,
-                "duration": 1
+                "Count": 10,
+                "duration": 3
             }
         ]
     },

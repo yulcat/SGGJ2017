@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PikeWave : MonoBehaviour {
+public class WreckingDam : MonoBehaviour {
+
     public int damage = 30;
     public float stun = 0;
     System.Guid guid;
-    // Use this for initialization
-    void Start () {
-        Destroy(this.gameObject, 6);
-	}
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
     void OnEnable()
     {
         guid = new System.Guid();
@@ -23,10 +23,4 @@ public class PikeWave : MonoBehaviour {
         }
 
     }
-    // Update is called once per frame
-    void Update () {
-        transform.Translate(Vector2.up * -7.0f * Time.deltaTime);
-        
-    }
-
 }
