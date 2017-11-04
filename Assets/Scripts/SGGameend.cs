@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SCGameend : SGSingleton<SCGameend> {
+public class SGGameend : SGSingleton<SGGameend> {
 
 	[SerializeField]
 	public int userscore; //추후에
