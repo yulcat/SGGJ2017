@@ -13,7 +13,7 @@ public class WreckingBall : MonoBehaviour {
     public float WreckingBallRotationTime=5.0f;
     public float WreckingBallDropTime;
     //public Transform WreckingBalls;
-    bool DropCheck = false;
+    //bool DropCheck = false;
 	// Use this for initialization
 	void Start () {
         StartCoroutine(WreckingRotation());
