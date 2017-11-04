@@ -4,22 +4,24 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 
-public class SGTrap : MonoBehaviour {
+public class SGTrap : MonoBehaviour
+{
+    public int damage = 3;
+    System.Guid guid;
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
+    void OnEnable()
+    {
+        guid = new System.Guid();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<SGCharacter>() != null)
         {
-            collision.GetComponent<SGCharacter>().OnContinueDamage(5f, 1f);
+            collision.GetComponent<SGCharacter>().AnyDamage(damage, guid);
         }
-            
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.GetComponent<SGCharacter>() != null)
-        {
-            collision.GetComponent<SGCharacter>().OffContinueDamage();
-        }
     }
 }
