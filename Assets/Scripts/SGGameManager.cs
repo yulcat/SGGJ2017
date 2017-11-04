@@ -13,12 +13,13 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     public enum SGE_GameState
     {
+        STAGE_INTRO,
         STAGE_START,
         GAME_FAIL,
         STAGE_CLEAR
     }
 
-    ReactiveProperty<SGE_GameState> gameState = new ReactiveProperty<SGE_GameState>(SGE_GameState.STAGE_START);
+    ReactiveProperty<SGE_GameState> gameState = new ReactiveProperty<SGE_GameState>(SGE_GameState.STAGE_INTRO);
 
 
     IntReactiveProperty currentStageNum = new IntReactiveProperty(1);    //현재 스테이지 번호
@@ -40,9 +41,10 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     public GameObject[] monsterPrefabs;
     public SGTimerSlider timerSlider;
+    public GameObject GameStartPanel;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
 
 
 
@@ -51,6 +53,9 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         {
             switch (_)
             {
+                case SGE_GameState.STAGE_INTRO:
+                    StageIntro();
+                    break;
                 case SGE_GameState.STAGE_START:
                     StageStart();
                     break;
@@ -61,14 +66,34 @@ public class SGGameManager : SGSingleton<SGGameManager> {
                     GameFail();
                     break;
             }
-        });        
+        });
     }
+
+    void StageIntro()
+    {
+        GameStartPanel.SetActive(true);
+        hero.SetMoveable(false);
+        stageJson = SGUtils.GetJsonArrayForKey(JsonMapper.ToObject(stageJsonAsset.text), "stage", SceneManager.GetActiveScene().name);
+        stageTime = int.Parse(stageJson["playtime"].ToString());
+
+        timerSlider.SetTimerText(stageTime);
+    }
+
+    public void Stage_Start()
+    {
+        gameState.Value = SGE_GameState.STAGE_START;
+    }
+
 
     void StageStart()
     {
         //스테이지 시간
-        stageJson = SGUtils.GetJsonArrayForKey(JsonMapper.ToObject(stageJsonAsset.text), "stage", SceneManager.GetActiveScene().name);
-        stageTime = int.Parse(stageJson["playtime"].ToString());
+        GameStartPanel.SetActive(false);
+        hero.SetMoveable(true);
+
+
+
+
 
         timerSlider.TimerStart(stageTime);
     }

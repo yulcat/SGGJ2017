@@ -18,7 +18,6 @@ public class SGHero : SGCharacter
         myAnimator = gameObject.Child("Body").GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         base.Start();
-        movable = true;
     }
 
     void FixedUpdate()

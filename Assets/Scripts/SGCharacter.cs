@@ -18,6 +18,11 @@ public class SGCharacter : MonoBehaviour
     Dictionary<Guid, float> attacks = new Dictionary<Guid, float>();
     protected bool movable = true;
 
+    public void SetMoveable(bool moveAble)
+    {
+        movable = moveAble;
+    }
+
     public enum SGE_ALIVE_STATE
     {
         ALIVE,
