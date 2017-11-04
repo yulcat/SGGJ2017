@@ -7,7 +7,7 @@ public class Arrow : MonoBehaviour {
     public GameObject[] RedFloor;
     public int randoms;
     public GameObject ArrowAttack;
-    public GameObject[] ArrowSpawPoint;
+    public GameObject[] raser;
     // Use this for initialization
     void Start()
     {
@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour {
     IEnumerator RandomSpawn()
     {
         print("Check");
-        yield return new WaitForSeconds(25);
+        yield return new WaitForSeconds(5);
         if (randoms == 0)
         {
             RedFloor[0].SetActive(true);
@@ -68,20 +68,24 @@ public class Arrow : MonoBehaviour {
         yield return new WaitForSeconds(1.0f);
         RedFloor[0].SetActive(false);
         RedFloor[1].SetActive(false);
-        RedFloor[2].SetActive(false);
-        StartCoroutine(RandomSpawn());
+        RedFloor[2].SetActive(false);        
         if (randoms == 0)
         {
-            Instantiate(ArrowAttack, ArrowSpawPoint[0].transform.position, Quaternion.identity);
+            raser[0].SetActive(true);
         }
         else if (randoms == 1)
         {
-            Instantiate(ArrowAttack, ArrowSpawPoint[1].transform.position, Quaternion.identity);
+            raser[2].SetActive(true);
         }
         else if (randoms == 2)
         {
-            Instantiate(ArrowAttack, ArrowSpawPoint[2].transform.position, Quaternion.identity);
+            raser[1].SetActive(true);
         }
+        yield return new WaitForSeconds(1.5f);
+        raser[0].SetActive(false);
+        raser[2].SetActive(false);
+        raser[1].SetActive(false);
+        StartCoroutine(RandomSpawn());
     }
     // Update is called once per frame
     void Update()

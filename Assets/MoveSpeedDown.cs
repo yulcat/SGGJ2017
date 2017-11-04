@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class MoveSpeedDown : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
     public void OnTriggerEnter2D(Collider2D col)
     {
         col.GetComponent<SGCharacter>().DownMoveSpeed(0.3f);
     }
-    public void OnTriggerExit2D(Collider2D cols)
+    public void OnTriggerExit2D(Collider2D col)
     {
-        cols.GetComponent<SGCharacter>().BackMoveSpeed();
+        col.GetComponent<SGCharacter>().BackMoveSpeed();
     }
 }
