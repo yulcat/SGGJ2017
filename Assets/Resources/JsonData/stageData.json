@@ -1,0 +1,53 @@
+[    
+    {
+        "stage": 1,
+        "playtime": 60,
+        "waveInfo":
+        [
+            {
+                "wave": 1,
+                "starttime": 0,                
+                "spawnMonsterInfo":
+                [
+                    {
+                        
+                        "prefab": "Monster1",
+                        "Count": 10,
+                        "duration": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "stage": 2,
+        "playtime": 60,
+        "waveInfo":
+        [
+            {
+                "wave": 1,
+                "starttime": 0,                
+                "spawnMonsterInfo":
+                [
+                    {                        
+                        "prefab": "Monster1",
+                        "Count": 10,
+                        "duration": 1
+                    }
+                ]
+            },
+            {
+                "wave": 1,
+                "time": 60,                
+                "spawnMonsterInfo":
+                [
+                    {                        
+                        "prefab": "Monster1",
+                        "Count": 10,
+                        "duration": 1
+                    }
+                ]
+            }
+        ]
+    }
+]
