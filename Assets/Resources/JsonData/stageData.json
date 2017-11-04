@@ -1,14 +1,14 @@
 [    
     {
-        "stage": "Stage1_breadone",
+        "stage": "Stage1",
         "nextstage": "Stage2",
         "playtime": 60,
         "waveInfo":
         [
             {
                 "wave": 1,
-                "starttime": 5,                
-                "prefab": "bigZombie",
+                "starttime": 0,                
+                "prefab": "zombie",
                 "Count": 1,
                 "duration": 1
             }

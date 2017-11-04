@@ -29,7 +29,7 @@ public class SGGameClear : MonoBehaviour {
 		HPText.SetActive(false);
 		ScoreText.SetActive(false);
 		nextbtn.SetActive(false);
-		texts();
+		texts(0,0,0);
 		StartCoroutine(Clear());
 
         stagenumber = SGGameManager.Instance.CurrentStageNum;
@@ -74,11 +74,11 @@ public class SGGameClear : MonoBehaviour {
 
 	}
 
-	public void texts(){
+	public void texts(int remainTime, int remainHP, int score){
 
-		TimeTextUI.text = "남은 시간 : "  ; //남은 시간 추가할 것 
-		HPTextUI.text = "남은 HP :"; // 남은 hp 추가 할것 
-		ScoreTextUI.text = "점수 : "; // 점수 계산해서 보여줄 것 
+		TimeTextUI.text = "남은 시간 : " + System.TimeSpan.FromSeconds(remainTime).ToString().Substring(3); //남은 시간 추가할 것 
+		HPTextUI.text = "남은 HP :" + remainHP; // 남은 hp 추가 할것 
+		ScoreTextUI.text = "점수 : " + score; // 점수 계산해서 보여줄 것 
 
 	}
 

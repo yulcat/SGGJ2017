@@ -132,36 +132,31 @@ public class SGGameManager : SGSingleton<SGGameManager> {
                 });
 
             currentWaveNum += 1;
-        }
+        } 
+    }
 
-
-
-       
+    void MonstersStop()
+    {
+        MonsterSpawn.gameObject.Descendants().OfComponent<SGMonster>().ForEach(_ => _.SetMoveable(false));
     }
 
     void StageClear()
     {
         int remainTime = timerSlider.GetRemainTime();
         timerSlider.TimerStop();
+        MonstersStop();
 
         //게임 스코어 결산
         int currentScore = ((int)hero.GetCurrentHP * 100) + (remainTime * 100);
         SGGameData.Instance.GameScore += currentScore;
 
-
-
-
         GameClearPanel.SetActive(true);
+        GameClearPanel.GetComponent<SGGameClear>().texts(remainTime, (int)hero.GetCurrentHP, currentScore);
 
         /*
         if (stageJson["nextstage"].ToString() != "endstage")
             SceneManager.LoadScene(stageJson["nextstage"].ToString());
             */
-    }
-
-    void GameClear()
-    {
-        
     }
 
     public void Game_Fail()
@@ -172,6 +167,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     void GameFail()
     {
         timerSlider.TimerStop();
+        MonstersStop();
         GameOverPanel.SetActive(true);
     }
 
