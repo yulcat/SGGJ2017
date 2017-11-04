@@ -7,16 +7,16 @@ using UniRx.Triggers;
 
 public class SGHero : SGBCharacter {
 
-    public float moveSpeed;
-
 	// Use this for initialization
-	void Start () {
+	override protected void Start () {
         gameObject.FixedUpdateAsObservable().Subscribe(_ =>
         {
             float h = CnInputManager.GetAxis("Horizontal");
             float v = CnInputManager.GetAxis("Vertical");
 
-            transform.Translate(new Vector3(h, v, 0f) * moveSpeed * Time.deltaTime);
+            transform.Translate(new Vector3(h, v, 0f) * currentMoveSpeed * Time.deltaTime);
         });
+
+        base.Start();
 	}
 }

@@ -16,13 +16,12 @@ public class SGMonster : SGBCharacter {
     SGE_MONSTER_ACTION_STATE actionStage = SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION;
     public SGE_MONSTER_ACTION_STATE GetActionState { get { return actionStage; } }
 
-    public float moveSpeed;
     public float sightLength;
 
     float distanceToHero = Mathf.Infinity;   //영웅과의 거리
 
 	// Use this for initialization
-	void Start () {
+	override protected void Start () {
 
         gameObject.UpdateAsObservable().Subscribe(_ =>
         {
@@ -44,7 +43,9 @@ public class SGMonster : SGBCharacter {
                 destination = SGGameManager.Instance.hero.transform.position;
 
             transform.position = Vector2.MoveTowards(transform.position,
-                destination, Time.deltaTime * moveSpeed);
+                destination, Time.deltaTime * currentMoveSpeed);
         });
+
+        base.Start();
 	}
 }
