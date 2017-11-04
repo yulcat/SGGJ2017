@@ -17,7 +17,7 @@
     {
          
         "stage": "stage2",
-        "nextstage": "stage2",
+        "nextstage": "stage1",
         "playtime": 90,
         "waveInfo":
         [
@@ -37,7 +37,7 @@
             },
             {
                 "wave": 3,
-                "starttime": 0,                
+                "starttime": 16.5,                
                 "prefab": "zombie",
                 "Count": 10,
                 "duration": 1.5
