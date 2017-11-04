@@ -39,7 +39,12 @@ public class SGHero : SGCharacter {
     public override void AnyDamage(float damage)
     {
         base.AnyDamage(damage);
-        myAnimator.SetTrigger("Hit");
+        if (GetAliveState == SGE_ALIVE_STATE.DEAD)
+        {
+             myAnimator.SetBool("Dead", true);
+        }
+        else
+            myAnimator.SetTrigger("Hit");
     }
 
 }

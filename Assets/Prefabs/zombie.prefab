@@ -53,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4707647782924922}
   - component: {fileID: 61037204399572846}
+  - component: {fileID: 114049023658325484}
   m_Layer: 0
   m_Name: attackRange
   m_TagString: Untagged
@@ -290,6 +291,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114049023658325484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225769658272448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6858cf66a7b994595924eae8ed5648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114372447996443458
 MonoBehaviour:
   m_ObjectHideFlags: 1
