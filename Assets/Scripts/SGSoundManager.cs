@@ -14,6 +14,8 @@ public class SGSoundManager : SGSingleton<SGSoundManager>{
     public AudioClip Press;
     public AudioClip Playerhit;
 
+    public AudioClip Boom;
+
     private static SGSoundManager SGDontInstance;
 
     protected override void Awake()
@@ -61,6 +63,9 @@ public class SGSoundManager : SGSingleton<SGSoundManager>{
                 break;
             case 6:
                 clip = Press;
+                break;
+            case 7:
+                clip = Boom;
                 break;
 
 
