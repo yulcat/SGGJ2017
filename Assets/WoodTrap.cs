@@ -5,6 +5,8 @@ using UnityEngine;
 public class WoodTrap : MonoBehaviour {
     public GameObject[] RedFloor;
     public int randoms;
+    public GameObject WoodAttack;
+    Vector3 WoodSpawPoint;
     // Use this for initialization
     void Start () {
         StartCoroutine(RandomSpawn());
@@ -66,6 +68,7 @@ public class WoodTrap : MonoBehaviour {
         RedFloor[1].SetActive(false);
         RedFloor[2].SetActive(false);
         StartCoroutine(RandomSpawn());
+        //Instantiate(WoodAttack, Vector3(-2.42f, 6.01f, -0.06f,Quaternion.identity));
     }
 	// Update is called once per frame
 	void Update () {

@@ -9,6 +9,9 @@ using Unity.Linq;
 public class SGHero : SGCharacter {
 
     Animator myAnimator;
+
+
+    CompositeDisposable heroDisposable = new CompositeDisposable();
 	// Use this for initialization
 	override protected void Start () {
         myAnimator = gameObject.Child("Body").GetComponent<Animator>();
@@ -26,7 +29,7 @@ public class SGHero : SGCharacter {
                 myAnimator.SetBool("Moving", false);
 
             transform.Translate(new Vector3(h, v, 0f) * currentMoveSpeed * Time.deltaTime);
-        });
+        }).AddTo(heroDisposable);
 
         base.Start();
 	}
@@ -42,6 +45,7 @@ public class SGHero : SGCharacter {
         if (GetAliveState == SGE_ALIVE_STATE.DEAD)
         {
              myAnimator.SetBool("Dead", true);
+            heroDisposable.Clear();
         }
         else
             myAnimator.SetTrigger("Hit");
