@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   moveSpeed: 2
+  hitEffect: 
   sightLength: 3
 --- !u!114 &114372447996443458
 MonoBehaviour:
@@ -320,4 +321,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   moveSpeed: 2
+  hitEffect: BloodSpit
   sightLength: 3

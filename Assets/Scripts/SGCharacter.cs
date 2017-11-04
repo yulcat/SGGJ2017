@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
+using System;
 
 public class SGCharacter : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class SGCharacter : MonoBehaviour
     protected float currentHP;
     protected float currentMoveSpeed;   //현재 이동속도
     public float GetCurrentHP { get { return currentHP; } }
-    CompositeDisposable continueDamageDIspose = new CompositeDisposable();
+    public string hitEffect;
+    Dictionary<Guid, float> attacks = new Dictionary<Guid, float>();
 
     public enum SGE_ALIVE_STATE
     {
@@ -31,14 +33,32 @@ public class SGCharacter : MonoBehaviour
         currentMoveSpeed = moveSpeed;
     }
 
-    //데미지를 받으면
-    public virtual void AnyDamage(float damage)
+    public bool GuidCheck(Guid guid)
     {
+        if (!attacks.ContainsKey(guid))
+        {
+            attacks.Add(guid, Time.time);
+            return true;
+        }
+        if (Time.time > attacks[guid] + 0.5f)
+        {
+            attacks[guid] = Time.time;
+            return true;
+        }
+        return false;
+    }
+
+    //데미지를 받으면
+    public virtual bool AnyDamage(float damage, Guid guid)
+    {
+        if (!GuidCheck(guid)) return false;
         currentHP -= damage;
         currentHP = Mathf.Max(0f, currentHP);
+        if (!string.IsNullOrEmpty(hitEffect)) EffectSpawner.SetEffect(hitEffect, transform.position);
 
         if (currentHP == 0f)
             aliveState = SGE_ALIVE_STATE.DEAD;
+        return true;
     }
 
     //힐이 있을지 모르지만 힐을 받으면
@@ -51,7 +71,7 @@ public class SGCharacter : MonoBehaviour
     public void DownMoveSpeed(float multiply)
     {
         print("Down");
-        currentMoveSpeed = currentMoveSpeed*multiply;
+        currentMoveSpeed = currentMoveSpeed * multiply;
     }
 
     public void BackMoveSpeed()
@@ -62,18 +82,5 @@ public class SGCharacter : MonoBehaviour
     public void Dead()
     {
         aliveState = SGE_ALIVE_STATE.DEAD;
-    }
-
-    public void OnContinueDamage(float damage, float duration)
-    {
-        Observable.Interval(System.TimeSpan.FromSeconds(duration)).Subscribe(_ =>
-        {
-            AnyDamage(damage);
-        }).AddTo(continueDamageDIspose);
-    }
-
-    public void OffContinueDamage()
-    {
-        continueDamageDIspose.Clear();
     }
 }
