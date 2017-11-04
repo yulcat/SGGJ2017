@@ -9,9 +9,14 @@ public class ShaderPropertySetter : MonoBehaviour
     public float Value;
     public Projector Target;
 
+    void Start()
+    {
+        Target.material = new Material(Target.material);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        //Target.material.SetFloat(PropertyName, Value);
+        Target.material.SetFloat(PropertyName, Value);
     }
 }
