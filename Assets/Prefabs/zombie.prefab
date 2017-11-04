@@ -309,3 +309,4 @@ MonoBehaviour:
   hitEffect: BloodSpit
   monsterType: 0
   sightLength: 3
+  attackDamage: 3

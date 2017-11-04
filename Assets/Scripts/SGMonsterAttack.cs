@@ -11,11 +11,12 @@ public class SGMonsterAttack : MonoBehaviour
     // Use this for initialization
     void OnEnable()
     {
+        float damage = GetComponentInParent<SGMonster>().attackDamage;
         guid = new System.Guid();
         Observable.Merge(gameObject.OnTriggerEnter2DAsObservable(), gameObject.OnTriggerStay2DAsObservable()).Where(_ => _.GetComponent<SGHero>() != null).
             Subscribe(_ =>
             {
-                _.GetComponent<SGHero>().AnyDamage(5f, guid, stun);
+                _.GetComponent<SGHero>().AnyDamage(damage, guid, stun);
             });
             SGSoundManager.Instance.PlaySounds(1);
     }

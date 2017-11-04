@@ -26,6 +26,7 @@ public class SGMonster : SGCharacter
     public MONSTER_TYPE monsterType = MONSTER_TYPE.ZOMBIE;
 
     public float sightLength;
+    public float attackDamage;
 
     float distanceToHero = Mathf.Infinity;   //영웅과의 거리
     Animator myAnimator;

@@ -26,13 +26,15 @@ public class SGHero : SGCharacter
             return;
         float h = CnInputManager.GetAxis("Horizontal");
         float v = CnInputManager.GetAxis("Vertical");
+        var dirc = new Vector3(h, v, 0);
+        if (dirc.magnitude > 1) dirc /= dirc.magnitude;
 
-        RotateToLookup(new Vector3(h, v, 0f));
+        RotateToLookup(dirc);
 
-        if (h != 0f && v != 0f)
+        if (h != 0f || v != 0f)
         {
             myAnimator.SetBool("Moving", true);
-            body.velocity = new Vector3(h, v, 0f) * currentMoveSpeed;
+            body.velocity = dirc * currentMoveSpeed;
         }
         else
         {
@@ -43,8 +45,7 @@ public class SGHero : SGCharacter
 
     void RotateToLookup(Vector3 target)
     {
-        Vector3 myPos = gameObject.Child("Body").transform.up;
-        gameObject.Child("Body").transform.up = Vector3.Slerp(myPos, target, 1f);
+        gameObject.Child("Body").transform.eulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(-target.x, target.y));
     }
 
     public override bool AnyDamage(float damage, System.Guid guid)
