@@ -104,5 +104,6 @@ public class SGCharacter : MonoBehaviour
     public void Dead()
     {
         aliveState = SGE_ALIVE_STATE.DEAD;
+   
     }
 }

@@ -7,6 +7,7 @@ public class realDeepTrap : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<SGCharacter>().Dead();
+        if(collision.GetComponent<SGCharacter>() != null)
+            collision.GetComponent<SGCharacter>().AnyDamage(collision.GetComponent<SGCharacter>().maxHP, new System.Guid());
     }
 }
