@@ -43,12 +43,17 @@ public class TileLoader : ScriptableObject
             for (var y = 0; y < tex.height; y++)
             {
                 var pixel = pixels[x + y * tex.width];
-                if (pixel == Color.white) floors.Add(new Vector2Int(x, y));
-                if (pixel == Color.red) spikes.Add(new Vector2Int(x, y));
-                if (pixel == Color.blue) tars.Add(new Vector2Int(x, y));
+                if (IsSimilarColor(pixel, Color.white)) floors.Add(new Vector2Int(x, y));
+                if (IsSimilarColor(pixel, Color.red)) spikes.Add(new Vector2Int(x, y));
+                if (IsSimilarColor(pixel, Color.blue)) tars.Add(new Vector2Int(x, y));
             }
         }
         Generate(floors, spikes, tars);
+    }
+
+    static bool IsSimilarColor(Color32 one, Color other)
+    {
+        return Vector4.Magnitude(one - other) < 0.2f;
     }
 
     static void Generate(List<Vector2Int> floors, List<Vector2Int> spikes, List<Vector2Int> tars)
