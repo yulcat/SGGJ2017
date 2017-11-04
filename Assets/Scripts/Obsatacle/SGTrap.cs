@@ -22,6 +22,7 @@ public class SGTrap : MonoBehaviour
         if (collision.GetComponent<SGCharacter>() != null)
         {
             collision.GetComponent<SGCharacter>().AnyDamage(damage, guid, stun);
+            SGSoundManager.Instance.PlaySounds(4);
         }
 
     }

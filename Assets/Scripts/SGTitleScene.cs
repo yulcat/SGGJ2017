@@ -18,15 +18,10 @@ public class SGTitleScene : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-		if (Input.GetMouseButtonDown(0))
-		{
-			SceneManager.LoadScene("main"); // 나중에 씬 이름 변경
-		}
-		
-	}
+    public void GotoLogin()
+    {
+        SceneManager.LoadScene("LogIn");
+    }
 	 
 	public void opencredit(){
 

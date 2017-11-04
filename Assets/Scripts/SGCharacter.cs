@@ -60,6 +60,7 @@ public class SGCharacter : MonoBehaviour
         if (!GuidCheck(guid)) return false;
         currentHP -= damage;
         currentHP = Mathf.Max(0f, currentHP);
+        
         if (!string.IsNullOrEmpty(hitEffect)) EffectSpawner.SetEffect(hitEffect, transform.position);
 
         if (currentHP == 0f)

@@ -31,4 +31,9 @@ public class SGTimerSlider : MonoBehaviour {
         timer.TimerStop();
     }
 
+    public int GetRemainTime()
+    {
+        return timer.CurrentTime;
+    }
+
 }

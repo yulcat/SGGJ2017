@@ -12,6 +12,8 @@ public class SGLogin : MonoBehaviour {
     public Text nicknameText;
     public static string nickname = "";
 
+    public GameObject popup;
+
     public void OnclickLogin()
     {
         var httpClient = SGHttpClient.Instance;
@@ -31,11 +33,13 @@ public class SGLogin : MonoBehaviour {
 
         if (res.resultCode == "2")
         {
+            popup.SetActive(true);
             // 아이디 확인 팝업
             //SceneManager.LoadScene("stage1");
         }
         else
         {
+            SGGameData.Instance.GameNickname = res.nickname;
             nickname = res.nickname;
             SceneManager.LoadScene("stage1");
         }

@@ -56,8 +56,11 @@ public class SGMonster : SGCharacter
 
         gameObject.FixedUpdateAsObservable().Subscribe(_ =>
         {
-            if (!movable) return;
-            pattern.PerformAction();
+            if (!movable) {
+                body.velocity = Vector2.zero;
+                return;
+            }
+           pattern.PerformAction();
         });
 
         base.Start();
@@ -78,6 +81,7 @@ public class SGMonster : SGCharacter
     {
         if (!base.AnyDamage(damage, guid)) return false;
         myAnimator.SetTrigger("Hit");
+        SGSoundManager.Instance.PlaySounds(1);
         return true;
     }
 
@@ -118,7 +122,6 @@ public class SGMonster : SGCharacter
                     destination = SGGameManager.Instance.hero.transform.position;
 
                 me.RotateToLookup((me.transform.position - destination).normalized);
-
                 me.body.velocity = (destination - me.transform.position).normalized * me.currentMoveSpeed;
             }
             else

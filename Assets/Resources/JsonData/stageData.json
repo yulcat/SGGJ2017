@@ -1,6 +1,6 @@
 [    
     {
-        "stage": "Stage1_breadone",
+        "stage": "stage1",
         "nextstage": "Stage2",
         "playtime": 60,
         "waveInfo":

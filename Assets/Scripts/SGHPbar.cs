@@ -16,7 +16,7 @@ public class SGHPbar : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         GetComponent<Slider>().value = SGGameManager.Instance.hero.GetCurrentHP;
-        gameObject.Child("Text").GetComponent<Text>().text = SGGameManager.Instance.hero.GetCurrentHP + "/" + SGGameManager.Instance.hero.maxHP;
+        gameObject.Child("Text").GetComponent<Text>().text = ((int)SGGameManager.Instance.hero.GetCurrentHP).ToString();
 
     }
 }
