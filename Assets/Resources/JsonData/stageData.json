@@ -17,6 +17,36 @@
     {
          
         "stage": "stage2",
+        "nextstage": "stage3",
+        "playtime": 90,
+        "waveInfo":
+        [
+            {
+                "wave": 1,
+                "starttime": 0,                
+                "prefab": "zombie",
+                "Count": 10,
+                "duration": 1.5
+            },
+            {
+                "wave": 2,
+                "starttime": 15,                
+                "prefab": "bigZombie",
+                "Count": 1,
+                "duration": 1
+            },
+            {
+                "wave": 3,
+                "starttime": 16.5,                
+                "prefab": "zombie",
+                "Count": 10,
+                "duration": 1.5
+            }
+        ]
+    
+    },{
+         
+        "stage": "stage3",
         "nextstage": "stage1",
         "playtime": 90,
         "waveInfo":
