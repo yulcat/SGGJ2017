@@ -12,6 +12,6 @@ public class ShaderPropertySetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Target.material.SetFloat(PropertyName, Value);
+        //Target.material.SetFloat(PropertyName, Value);
     }
 }
