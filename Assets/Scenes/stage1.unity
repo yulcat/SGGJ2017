@@ -396,6 +396,8 @@ MonoBehaviour:
   MonsterSpawn: {fileID: 271790033}
   stageJsonAsset: {fileID: 4900000, guid: 41affcdd43cd4b344bd5efd1c554f840, type: 3}
   stageTime: 0
+  currentWaveNum: 1
+  monsterPrefabs: []
 --- !u!1001 &94567567
 Prefab:
   m_ObjectHideFlags: 0
