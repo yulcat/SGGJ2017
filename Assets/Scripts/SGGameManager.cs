@@ -159,7 +159,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
         SGPostScore.Instance.PostScore();
         GameClearPanel.SetActive(true);
-        GameClearPanel.GetComponent<SGGameClear>().texts(remainTime, (int)hero.GetCurrentHP, currentScore);
+        GameClearPanel.GetComponent<SGGameClear>().texts(remainTime, (int)hero.GetCurrentHP, SGGameData.Instance.GameScore);
     }
 
     public void GoToNextStage()
@@ -192,6 +192,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     public void MonsterDie()
     {
         monsterCount.Value--;
+        SGGameData.Instance.GameScore += 100;
     }
     
 }
