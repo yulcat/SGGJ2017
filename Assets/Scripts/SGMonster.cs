@@ -135,7 +135,8 @@ public class SGMonster : SGCharacter
     {
         bool tracingDestination;
         SGMonster me;
-        const float maxSpeed = 6;
+        const float maxSpeed = 7;
+        const float horizontalMaxSpeed = 3.5f;
         const float rotationSpeed = 0.3f;
         public WheelZombie(SGMonster parent)
         {
@@ -156,7 +157,9 @@ public class SGMonster : SGCharacter
                 destination = SGGameManager.Instance.hero.transform.position;
             me.RotateToLookup((me.transform.position - destination).normalized, rotationSpeed);
             var acc = -me.transform.up * me.moveSpeed * Time.deltaTime;
-            me.body.velocity = (me.body.velocity + (Vector2)acc) * (1 - Time.deltaTime * (1 - me.moveSpeed / maxSpeed));
+            var vertical = Vector2.Dot(me.body.velocity + (Vector2)acc, me.transform.up) * (1 - Time.deltaTime * (1 - me.moveSpeed / maxSpeed));
+            var horizontal = Vector2.Dot(me.body.velocity + (Vector2)acc, me.transform.right) * (1 - Time.deltaTime * (1 - me.moveSpeed / horizontalMaxSpeed));
+            me.body.velocity = me.transform.up * vertical + me.transform.right * horizontal;
         }
 
         public void SetActionState(float distanceToHero)
