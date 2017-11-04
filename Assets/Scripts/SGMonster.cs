@@ -5,7 +5,7 @@ using UniRx;
 using UniRx.Triggers;
 using Unity.Linq;
 
-public class SGMonster : SGBCharacter {
+public class SGMonster : SGCharacter {
 
     public enum SGE_MONSTER_ACTION_STATE
     {
@@ -29,8 +29,15 @@ public class SGMonster : SGBCharacter {
 
             if (distanceToHero <= sightLength)
                 actionStage = SGE_MONSTER_ACTION_STATE.TRACE_HERO;
+
+
             else
                 actionStage = SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION;
+            if (GetAliveState == SGE_ALIVE_STATE.DEAD)
+            {
+                Destroy(gameObject);
+            }
+
         });
 
         gameObject.FixedUpdateAsObservable().Subscribe(_ => {

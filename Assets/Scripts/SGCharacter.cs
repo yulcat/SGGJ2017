@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SGBCharacter : MonoBehaviour
+public class SGCharacter : MonoBehaviour
 {
 
     public float maxHP;
@@ -31,6 +31,7 @@ public class SGBCharacter : MonoBehaviour
     //데미지를 받으면
     public void AnyDamage(float damage)
     {
+        print("HPmiu");
         currentHP -= damage;
         currentHP = Mathf.Max(0f, currentHP);
 
@@ -47,11 +48,17 @@ public class SGBCharacter : MonoBehaviour
 
     public void DownMoveSpeed(float multiply)
     {
-        currentMoveSpeed *= multiply;
+        print("Down");
+        currentMoveSpeed = currentMoveSpeed*multiply;
     }
 
     public void BackMoveSpeed()
     {
+        print("back");
         currentMoveSpeed = moveSpeed;
+    }
+    public void Dead()
+    {
+        aliveState = SGE_ALIVE_STATE.DEAD;
     }
 }

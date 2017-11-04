@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 204660009}
   - component: {fileID: 204660011}
   - component: {fileID: 204660010}
+  - component: {fileID: 204660012}
   m_Layer: 0
   m_Name: TarFloor
   m_TagString: TarFloor
@@ -536,6 +537,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &204660012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204660008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63aaec867e73654a8a0842c903ac2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &240166381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,6 +2603,7 @@ GameObject:
   - component: {fileID: 1925559584}
   - component: {fileID: 1925559586}
   - component: {fileID: 1925559585}
+  - component: {fileID: 1925559587}
   m_Layer: 0
   m_Name: RealDeepTrap
   m_TagString: RealDeepTrap
@@ -2680,6 +2693,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1925559587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1925559583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26443a980eee06a438387591c6d3fe6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943508326
 GameObject:
   m_ObjectHideFlags: 0
