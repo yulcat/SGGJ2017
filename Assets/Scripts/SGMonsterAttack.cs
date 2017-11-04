@@ -13,6 +13,4 @@ public class SGMonsterAttack : MonoBehaviour {
                 _.GetComponent<SGHero>().AnyDamage(5f);                
             });
 	}
-	
-
 }

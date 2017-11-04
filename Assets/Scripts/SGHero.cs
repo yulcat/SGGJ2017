@@ -10,7 +10,6 @@ public class SGHero : SGCharacter {
 
     Animator myAnimator;
 
-
     CompositeDisposable heroDisposable = new CompositeDisposable();
 	// Use this for initialization
 	override protected void Start () {
@@ -46,6 +45,7 @@ public class SGHero : SGCharacter {
         {
              myAnimator.SetBool("Dead", true);
             heroDisposable.Clear();
+            SGGameManager.Instance.HeroDie();
         }
         else
             myAnimator.SetTrigger("Hit");

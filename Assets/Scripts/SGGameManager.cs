@@ -82,7 +82,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         {
             Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
                 .Take(count).Subscribe(_ => {
-                    GameObject mon = Instantiate<GameObject>(monsterPrefab, CurrentMonsterStartPoint.position, Quaternion.identity);
+                    GameObject mon = Instantiate<GameObject>(monsterPrefab, CurrentMonsterStartPoint.position, Quaternion.identity, MonsterSpawn);
                 });
 
             currentWaveNum += 1;
@@ -104,6 +104,12 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     void GameFail()
     {
 
+    }
+
+    public void HeroDie()
+    {
+        //영웅 죽음
+        gameState.Value = SGE_GameState.GAME_FAIL;
     }
     
 }
