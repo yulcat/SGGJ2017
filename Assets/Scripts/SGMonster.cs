@@ -24,11 +24,13 @@ public class SGMonster : SGCharacter
 
     float distanceToHero = Mathf.Infinity;   //영웅과의 거리
     Animator myAnimator;
+    Rigidbody2D body;
 
     // Use this for initialization
     override protected void Start()
     {
         myAnimator = gameObject.GetComponentInChildren<Animator>();
+        body = GetComponent<Rigidbody2D>();
         gameObject.UpdateAsObservable().Subscribe(_ =>
         {
             float distanceToHero = Vector3.Distance(transform.position, SGGameManager.Instance.hero.transform.position);
@@ -64,8 +66,7 @@ public class SGMonster : SGCharacter
 
                 RotateToLookup((transform.position - destination).normalized);
 
-                transform.position = Vector2.MoveTowards(transform.position,
-                    destination, Time.deltaTime * currentMoveSpeed);
+                body.velocity = (destination - transform.position).normalized * currentMoveSpeed;
             }
             else
             {
