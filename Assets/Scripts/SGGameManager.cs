@@ -76,7 +76,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     void StageIntro()
     {
-        //GameStartPanel.SetActive(true);임시로빠르게 하기 위해
+        GameStartPanel.SetActive(true);
         hero.SetMoveable(false);
         stageJson = SGUtils.GetJsonArrayForKey(JsonMapper.ToObject(stageJsonAsset.text), "stage", SceneManager.GetActiveScene().name);
         stageTime = int.Parse(stageJson["playtime"].ToString());
@@ -90,9 +90,6 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         }
 
         monsterCount.Where(_ => _ <= 0).Subscribe(_ => { gameState.Value = SGE_GameState.STAGE_CLEAR; });
-
-        //임시로빠르게 하기 위해
-        Stage_Start();
     }
 
     public void Stage_Start()
@@ -104,7 +101,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     void StageStart()
     {
         //스테이지 시간
-        // GameStartPanel.SetActive(false);임시로빠르게 하기 위해
+        GameStartPanel.SetActive(false);
         hero.SetMoveable(true);
         timerSlider.TimerStart(stageTime);
         

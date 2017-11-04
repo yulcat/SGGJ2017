@@ -9,7 +9,7 @@
                 "wave": 1,
                 "starttime": 0,                
                 "prefab": "zombie",
-                "Count": 10,
+                "Count": 3,
                 "duration": 3
             }
         ]
@@ -18,14 +18,21 @@
          
         "stage": "stage2",
         "nextstage": "stage2",
-        "playtime": 60,
+        "playtime": 120,
         "waveInfo":
         [
             {
                 "wave": 1,
                 "starttime": 0,                
                 "prefab": "zombie",
-                "Count": 10,
+                "Count": 5,
+                "duration": 3
+            },
+            {
+                "wave": 2,
+                "starttime": 30,                
+                "prefab": "wheelZombie",
+                "Count": 5,
                 "duration": 3
             }
         ]

@@ -16,6 +16,8 @@ public class SGGameStart : SGSingleton<SGGameStart>
     public GameObject Counttextobj;
     public Text counttext;
     bool clicked = false;
+
+    
     // Use this for initialization
     void OnEnable()
     {
@@ -78,6 +80,8 @@ public class SGGameStart : SGSingleton<SGGameStart>
                 DescriptionText.text = "그 둘의 사랑은 영원할 것인가?\n대사는 좀 나중에 생각해봅시다";
                 break;
         }
+
+        SGGameData.Instance.stageTitle = TitleText.text;
 
     }
 

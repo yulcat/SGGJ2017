@@ -28,6 +28,9 @@ public class SGGameData : SGSingleton<SGGameData> {
     [HideInInspector]
     public int GameScore = 0;
 
+    [HideInInspector]
+    public string stageTitle = "";
+
 
 
 
