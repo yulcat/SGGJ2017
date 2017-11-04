@@ -400,6 +400,7 @@ MonoBehaviour:
   monsterPrefabs:
   - {fileID: 1083756913110904, guid: ced68a8a485c846d28e8cabe7b3dbbe9, type: 2}
   - {fileID: 1310479008246952, guid: cf2ad861b851745348b291e812519245, type: 2}
+  - {fileID: 1187870871163888, guid: be12eb9dfc46a4e2ea69de5493c3568e, type: 2}
   timerSlider: {fileID: 702444340}
   GameStartPanel: {fileID: 750457353}
   GameClearPanel: {fileID: 957219149}

@@ -8,7 +8,7 @@
             {
                 "wave": 1,
                 "starttime": 0,                
-                "prefab": "zombie",
+                "prefab": "bigZombie",
                 "Count": 1,
                 "duration": 1
             }
