@@ -103,7 +103,7 @@ public class SGCharacter : MonoBehaviour
     {
         print("Down");
         tars.Add(from, multiply);
-        currentMoveSpeed = tars.Values.Aggregate(moveSpeed, (a, b) => a * b);
+        currentMoveSpeed = tars.Values.Min() * moveSpeed;
     }
 
     public void BackMoveSpeed(MoveSpeedDown from)
@@ -114,7 +114,7 @@ public class SGCharacter : MonoBehaviour
             currentMoveSpeed = moveSpeed;
         else
         {
-            currentMoveSpeed = tars.Values.Aggregate(moveSpeed, (a, b) => a * b);
+            currentMoveSpeed = tars.Values.Min() * moveSpeed;
         }
     }
     public void Dead()
