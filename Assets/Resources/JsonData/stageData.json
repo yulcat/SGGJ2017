@@ -1,6 +1,6 @@
 [    
     {
-        "stage": "Stage1",
+        "stage": "Stage1_breadone",
         "nextstage": "Stage2",
         "playtime": 60,
         "waveInfo":
@@ -8,15 +8,9 @@
             {
                 "wave": 1,
                 "starttime": 0,                
-                "spawnMonsterInfo":
-                [
-                    {
-                        
-                        "prefab": "Monster1",
-                        "Count": 10,
-                        "duration": 1
-                    }
-                ]
+                "prefab": "zombie",
+                "Count": 10,
+                "duration": 1
             }
         ]
     },
@@ -29,26 +23,16 @@
             {
                 "wave": 1,
                 "starttime": 0,                
-                "spawnMonsterInfo":
-                [
-                    {                        
-                        "prefab": "Monster1",
-                        "Count": 10,
-                        "duration": 1
-                    }
-                ]
+                "prefab": "zombie",
+                "Count": 10,
+                "duration": 1
             },
             {
                 "wave": 1,
                 "time": 60,                
-                "spawnMonsterInfo":
-                [
-                    {                        
-                        "prefab": "Monster1",
-                        "Count": 10,
-                        "duration": 1
-                    }
-                ]
+                "prefab": "zombie",
+                "Count": 10,
+                "duration": 1
             }
         ]
     }

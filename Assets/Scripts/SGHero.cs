@@ -32,9 +32,14 @@ public class SGHero : SGCharacter {
 	}
     void RotateToLookup(Vector3 target)
     {
-        Debug.Log(target);
         Vector3 myPos = gameObject.Child("Body").transform.up;
         gameObject.Child("Body").transform.up = Vector3.Slerp(myPos, target, 1f);
+    }
+
+    public override void AnyDamage(float damage)
+    {
+        base.AnyDamage(damage);
+        myAnimator.SetTrigger("Hit");
     }
 
 }

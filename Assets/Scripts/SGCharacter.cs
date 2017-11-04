@@ -29,9 +29,8 @@ public class SGCharacter : MonoBehaviour
     }
 
     //데미지를 받으면
-    public void AnyDamage(float damage)
+    public virtual void AnyDamage(float damage)
     {
-        print("HPmiu");
         currentHP -= damage;
         currentHP = Mathf.Max(0f, currentHP);
 

@@ -5,6 +5,7 @@ using UniRx;
 using Unity.Linq;
 using LitJson;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class SGGameManager : SGSingleton<SGGameManager> {
 
@@ -22,8 +23,6 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     IntReactiveProperty currentStageNum = new IntReactiveProperty(1);    //현재 스테이지 번호
 
-    int allStageCount;
-
     public Transform MonsterSpawn;
     public Transform CurrentMonsterStartPoint { get { return MonsterSpawn.gameObject.Child("StartPoint").transform; } }
     public Transform CurrentMonsterDestination { get { return MonsterSpawn.gameObject.Child("Destination").transform; } }
@@ -36,8 +35,15 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     [HideInInspector]
     public int stageTime;
 
+    [HideInInspector]
+    public int currentWaveNum = 1;
+
+    public GameObject[] monsterPrefabs;
+
     // Use this for initialization
     void Start () {
+
+
 
         //게임스테이트에 따라
         gameState.Subscribe(_ =>
@@ -62,6 +68,26 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         //스테이지 시간
         stageJson = SGUtils.GetJsonArrayForKey(JsonMapper.ToObject(stageJsonAsset.text), "stage", SceneManager.GetActiveScene().name);
         stageTime = int.Parse(stageJson["playtime"].ToString());
+
+        OnPlayTime(0);
+    }
+
+    public void OnPlayTime(int startTime) //몬스터 리스폰을 위하여
+    {
+       JsonData waveInfo =  SGUtils.GetJsonArrayForKey(stageJson["waveInfo"], "wave", currentWaveNum);
+        GameObject monsterPrefab = monsterPrefabs.Where(_ => _.name == waveInfo["prefab"].ToString()).FirstOrDefault();
+        int count = int.Parse(waveInfo["Count"].ToString());
+        float duration = float.Parse(waveInfo["duration"].ToString());
+       if (int.Parse(waveInfo["starttime"].ToString()) >= startTime)
+        {
+            Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
+                .Take(count).Subscribe(_ => {
+                    GameObject mon = Instantiate<GameObject>(monsterPrefab, CurrentMonsterStartPoint.position, Quaternion.identity);
+                });
+
+            currentWaveNum += 1;
+        }
+        
     }
 
     void StageClear()
