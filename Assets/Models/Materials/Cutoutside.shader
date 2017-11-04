@@ -25,26 +25,31 @@ Shader "Custom/Cutoutside" {
 		struct vertexInput
 		{
 			float4 vertex : POSITION;
+			float2 uv : TEXCOORD0;
 		};
 	
 		struct vertexOutput
 		{
 			float4 pos : POSITION;
 			float4 worldPos : TEXCOORD0;
+			float2 uv : TEXCOORD1;
 		};
 
 		fixed4 _CutColor;
+		sampler2D _MainTex;
 	
 		vertexOutput vert(vertexInput v) {
 			vertexOutput o;
 			o.pos = UnityObjectToClipPos(v.vertex);
 			o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+			o.uv = v.uv;
 			return o;
 		}
 	
 		fixed4 frag( vertexOutput i) : COLOR {
 			if(i.worldPos.z < -3) discard;
-			return _CutColor;
+			fixed4 c = tex2D(_MainTex, i.uv);
+			return _CutColor * c;
 		}
 	
 		ENDCG
