@@ -34,7 +34,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     public TextAsset stageJsonAsset;
     JsonData stageJson;
 
-
+    public int CurrentStageNum { get { return currentStageNum.Value; } }    //현재 스테이지 번호 가져가기
 
     // Use this for initialization
     void Start () {
