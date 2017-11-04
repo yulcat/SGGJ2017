@@ -8,7 +8,7 @@ public class MoveSpeedDown : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.GetComponent<SGCharacter>() != null)
-            col.GetComponent<SGCharacter>().DownMoveSpeed(0.3f, this);
+            col.GetComponent<SGCharacter>().DownMoveSpeed(0.5f, this);
     }
     public void OnTriggerExit2D(Collider2D cols)
     {
