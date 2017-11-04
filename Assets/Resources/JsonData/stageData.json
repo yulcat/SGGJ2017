@@ -1,6 +1,7 @@
 [    
     {
-        "stage": 1,
+        "stage": "Stage1",
+        "nextstage": "Stage2",
         "playtime": 60,
         "waveInfo":
         [
@@ -20,7 +21,8 @@
         ]
     },
     {
-        "stage": 2,
+        "stage": "Stage2",
+        "nextstage": "endstage",
         "playtime": 120,
         "waveInfo":
         [
