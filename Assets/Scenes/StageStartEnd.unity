@@ -405,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameNickname: 
   GameScore: 0
+  stageTitle: 
 --- !u!4 &155143523
 Transform:
   m_ObjectHideFlags: 0

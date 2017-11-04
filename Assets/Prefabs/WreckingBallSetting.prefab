@@ -51,11 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748ce1567192f98419589f2b40b5e517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shadow: {fileID: 0}
-  DropSPeed: 5
-  xValueMax: 2.71
-  xValueMin: -3.07
-  yValueMax: 5.01
-  yValueMin: -3.98
   WreckingBallRotationTime: 5
   WreckingBallDropTime: 2

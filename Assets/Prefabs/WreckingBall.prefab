@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256939255518982}
   - component: {fileID: 58586845029464878}
-  - component: {fileID: 114405728146728090}
+  - component: {fileID: 114656635560025550}
   m_Layer: 0
   m_Name: hitArea
   m_TagString: Untagged
@@ -236,19 +236,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114405728146728090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1887295591962048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8065313951884914aabfef4c83d03671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  stun: 0
 --- !u!114 &114633711403256430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,6 +250,19 @@ MonoBehaviour:
   PropertyName: _Pow
   Value: 1
   Target: {fileID: 119177344297561826}
+--- !u!114 &114656635560025550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887295591962048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf28b840d0ddca4f9abbd45eaea9ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  stun: 0
 --- !u!114 &114943340056864076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WreckingBallRotationTime: 7
-  WreckingBallDropTime: 2
+  WreckingBallDropTime: 3
 --- !u!119 &119177344297561826
 Projector:
   m_ObjectHideFlags: 1
