@@ -13,7 +13,6 @@ public class SGHero : SGCharacter
 
     CompositeDisposable heroDisposable = new CompositeDisposable();
     Rigidbody2D body;
-    bool movable;
     // Use this for initialization
     override protected void Start()
     {
@@ -48,18 +47,6 @@ public class SGHero : SGCharacter
         Vector3 myPos = gameObject.Child("Body").transform.up;
         gameObject.Child("Body").transform.up = Vector3.Slerp(myPos, target, 1f);
     }
-    IEnumerator CoSetUnmovable(float time)
-    {
-        StopAllCoroutines();
-        movable = false;
-        yield return new WaitForSeconds(time);
-        movable = true;
-    }
-
-    void SetUnmovable(float time)
-    {
-        StartCoroutine(CoSetUnmovable(time));
-    }
 
     public override bool AnyDamage(float damage, System.Guid guid)
     {
@@ -75,11 +62,4 @@ public class SGHero : SGCharacter
             myAnimator.SetTrigger("Hit");
         return true;
     }
-
-    public void AnyDamage(float damage, System.Guid guid, float stun)
-    {
-        SetUnmovable(stun);
-        AnyDamage(damage, guid);
-    }
-
 }

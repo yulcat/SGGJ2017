@@ -7,6 +7,7 @@ using UniRx.Triggers;
 public class SGTrap : MonoBehaviour
 {
     public int damage = 3;
+    public float stun = 0;
     System.Guid guid;
     /// <summary>
     /// This function is called when the object becomes enabled and active.
@@ -20,7 +21,7 @@ public class SGTrap : MonoBehaviour
     {
         if (collision.GetComponent<SGCharacter>() != null)
         {
-            collision.GetComponent<SGCharacter>().AnyDamage(damage, guid);
+            collision.GetComponent<SGCharacter>().AnyDamage(damage, guid, stun);
         }
 
     }

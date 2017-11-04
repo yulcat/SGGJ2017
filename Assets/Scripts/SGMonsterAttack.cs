@@ -6,7 +6,7 @@ using UniRx.Triggers;
 
 public class SGMonsterAttack : MonoBehaviour
 {
-
+    public float stun = 0f;
     System.Guid guid;
     // Use this for initialization
     void OnEnable()
@@ -15,7 +15,7 @@ public class SGMonsterAttack : MonoBehaviour
         gameObject.OnTriggerEnter2DAsObservable().Where(_ => _.GetComponent<SGHero>() != null).
             Subscribe(_ =>
             {
-                _.GetComponent<SGHero>().AnyDamage(5f, guid);
+                _.GetComponent<SGHero>().AnyDamage(5f, guid, stun);
             });
     }
 }
