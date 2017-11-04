@@ -17,5 +17,6 @@ public class SGMonsterAttack : MonoBehaviour
             {
                 _.GetComponent<SGHero>().AnyDamage(5f, guid, stun);
             });
+            SGSoundManager.Instance.PlaySounds(1);
     }
 }

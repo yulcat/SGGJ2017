@@ -78,6 +78,7 @@ public class SGMonster : SGCharacter
     {
         if (!base.AnyDamage(damage, guid)) return false;
         myAnimator.SetTrigger("Hit");
+        SGSoundManager.Instance.PlaySounds(1);
         return true;
     }
 
