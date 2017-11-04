@@ -15,9 +15,10 @@
         ]
     },
     {
+         
         "stage": "stage2",
-        "nextstage": "endstage",
-        "playtime": 120,        
+        "nextstage": "stage2",
+        "playtime": 60,
         "waveInfo":
         [
             {
@@ -25,15 +26,9 @@
                 "starttime": 0,                
                 "prefab": "zombie",
                 "Count": 10,
-                "duration": 1
-            },
-            {
-                "wave": 1,
-                "time": 60,                
-                "prefab": "zombie",
-                "Count": 10,
-                "duration": 1
+                "duration": 3
             }
         ]
+    
     }
 ]
