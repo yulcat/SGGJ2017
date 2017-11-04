@@ -36,6 +36,8 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     public int CurrentStageNum { get { return currentStageNum.Value; } }    //현재 스테이지 번호 가져가기
 
+    public int stageTime;
+
     // Use this for initialization
     void Start () {
 
@@ -64,6 +66,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
             currentStage = stagesTransform.gameObject.Child("Stage" + _).transform; //스테이지 정보를 저장
             stageJson = SGUtils.GetJsonArrayForKey(JsonMapper.ToObject(stageJsonAsset.text), "stage", _);
             gameState.Value = SGE_GameState.STAGE_START;
+            
         });
     }
 
@@ -74,8 +77,13 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     void StageStart()
     {
+        //스테이지 시간
+        stageTime = int.Parse(stageJson["playtime"].ToString());
+
 
     }
+
+    
 
     void StageClear()
     {

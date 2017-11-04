@@ -31,7 +31,6 @@ public class SGMonster : SGBCharacter {
                 actionStage = SGE_MONSTER_ACTION_STATE.TRACE_HERO;
             else
                 actionStage = SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION;
-
         });
 
         gameObject.FixedUpdateAsObservable().Subscribe(_ => {
