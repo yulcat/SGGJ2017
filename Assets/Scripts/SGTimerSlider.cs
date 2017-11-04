@@ -26,4 +26,9 @@ public class SGTimerSlider : MonoBehaviour {
         timer.TimerStart();
     }
 
+    public void TimerStop()
+    {
+        timer.TimerStop();
+    }
+
 }

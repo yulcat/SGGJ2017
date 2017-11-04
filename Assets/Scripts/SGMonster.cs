@@ -48,6 +48,7 @@ public class SGMonster : SGCharacter
             pattern.SetActionState(distanceToHero);
             if (GetAliveState == SGE_ALIVE_STATE.DEAD)
             {
+                SGGameManager.Instance.MonsterDie();
                 Destroy(gameObject);
             }
         });
