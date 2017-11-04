@@ -14,6 +14,7 @@ public class SGCharacter : MonoBehaviour
     protected float currentHP;
     protected float currentMoveSpeed;   //현재 이동속도
     public float GetCurrentHP { get { return currentHP; } }
+    public string hitEffect;
     Dictionary<Guid, float> attacks = new Dictionary<Guid, float>();
 
     public enum SGE_ALIVE_STATE
@@ -53,6 +54,7 @@ public class SGCharacter : MonoBehaviour
         if (!GuidCheck(guid)) return false;
         currentHP -= damage;
         currentHP = Mathf.Max(0f, currentHP);
+        if (!string.IsNullOrEmpty(hitEffect)) EffectSpawner.SetEffect(hitEffect, transform.position);
 
         if (currentHP == 0f)
             aliveState = SGE_ALIVE_STATE.DEAD;
