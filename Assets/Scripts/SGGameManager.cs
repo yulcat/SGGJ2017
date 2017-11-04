@@ -91,7 +91,10 @@ public class SGGameManager : SGSingleton<SGGameManager> {
             monsterCount.Value += int.Parse(stageJson["waveInfo"][s]["Count"].ToString());
         }
 
-        monsterCount.Where(_ => _ <= 0).Subscribe(_ => { gameState.Value = SGE_GameState.STAGE_CLEAR; });
+        monsterCount.Where(_ => _ <= 0).Subscribe(_ => {
+            if (gameState.Value == SGE_GameState.STAGE_START)
+                gameState.Value = SGE_GameState.STAGE_CLEAR;
+        });
     }
 
     public void Stage_Start()
@@ -120,7 +123,8 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
         if (remainTime <= 0)
         {
-            gameState.Value = SGE_GameState.GAME_FAIL;
+            if (gameState.Value == SGE_GameState.STAGE_START)
+                gameState.Value = SGE_GameState.GAME_FAIL;
             return;
         }
 
@@ -176,7 +180,8 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     public void Game_Fail()
     {
-        gameState.Value = SGE_GameState.GAME_FAIL;
+        if(gameState.Value == SGE_GameState.STAGE_START)
+            gameState.Value = SGE_GameState.GAME_FAIL;
     }
 
     void GameFail()
@@ -192,7 +197,8 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     public void HeroDie()
     {
         //영웅 죽음
-        gameState.Value = SGE_GameState.GAME_FAIL;
+        if (gameState.Value == SGE_GameState.STAGE_START)
+            gameState.Value = SGE_GameState.GAME_FAIL;
     }
 
     public void MonsterDie()
