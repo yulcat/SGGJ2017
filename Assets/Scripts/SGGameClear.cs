@@ -19,9 +19,9 @@ public class SGGameClear : MonoBehaviour {
 
 	public GameObject nextbtn;
 
-	// Use this for initialization
+    // Use this for initialization
 
-	public int stagenumber = SGGameManager.Instance.CurrentStageNum;
+    public int stagenumber;
 
 	void Start () {
 		GameClearText.SetActive(false);
@@ -32,9 +32,12 @@ public class SGGameClear : MonoBehaviour {
 		texts();
 		StartCoroutine(Clear());
 
-	
-		
-	}
+        stagenumber = SGGameManager.Instance.CurrentStageNum;
+
+
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
