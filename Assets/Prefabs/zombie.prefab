@@ -304,9 +304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bb8b4c6f360f342a8935698107cec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 1
   moveSpeed: 2
   hitEffect: BloodSpit
   monsterType: 0
   sightLength: 3
-  attackDamage: 2
+  attackDamage: 1

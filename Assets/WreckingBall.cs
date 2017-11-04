@@ -28,12 +28,18 @@ public class WreckingBall : MonoBehaviour
             animator = gameObject.AddComponent<Animator>();
             animator.runtimeAnimatorController = anim;
             StartCoroutine(WreckingBallDrop());
+            LeanTween.delayedCall(1f, ()=>{SGSoundManager.Instance.PlaySounds(7);});
+           // ;
         }
     }
     IEnumerator WreckingBallDrop()
     {
+        
         yield return new WaitForSeconds(WreckingBallDropTime);
         child.SetActive(false);
         animator.enabled = false;
+        
     }
+
+
 }

@@ -72,14 +72,17 @@ public class Arrow : MonoBehaviour {
         if (randoms == 0)
         {
             raser[0].SetActive(true);
+            SGSoundManager.Instance.PlaySounds(5);
         }
         else if (randoms == 1)
         {
             raser[2].SetActive(true);
+            SGSoundManager.Instance.PlaySounds(5);
         }
         else if (randoms == 2)
         {
             raser[1].SetActive(true);
+            SGSoundManager.Instance.PlaySounds(5);
         }
         yield return new WaitForSeconds(1.5f);
         raser[0].SetActive(false);
