@@ -63,7 +63,8 @@ public class SGGameClear : MonoBehaviour {
 		if (stagenumber != 5){ 
 			SGSoundManager.Instance.PlaySounds(7);
 			nextbtn.SetActive(true);
-		else
+		}
+		else{
 			SceneManager.LoadScene("ending");// 스테이지 5를 깨면 엔딩씬으로 보내자 
 		}
 	}
