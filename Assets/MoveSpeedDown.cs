@@ -6,10 +6,12 @@ public class MoveSpeedDown : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        col.GetComponent<SGCharacter>().DownMoveSpeed(0.3f);
+        if(col.GetComponent<SGCharacter>() != null)
+            col.GetComponent<SGCharacter>().DownMoveSpeed(0.3f);
     }
-    public void OnTriggerExit2D(Collider2D col)
+    public void OnTriggerExit2D(Collider2D cols)
     {
-        col.GetComponent<SGCharacter>().BackMoveSpeed();
+        if (cols.GetComponent<SGCharacter>() != null)
+            cols.GetComponent<SGCharacter>().BackMoveSpeed();
     }
 }
