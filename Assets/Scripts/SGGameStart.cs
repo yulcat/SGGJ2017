@@ -17,7 +17,7 @@ public class SGGameStart : SGSingleton<SGGameStart>
     public Text counttext;
     bool clicked = false;
 
-    
+
     // Use this for initialization
     void OnEnable()
     {
@@ -83,28 +83,28 @@ public class SGGameStart : SGSingleton<SGGameStart>
         Counttextobj.SetActive(true);
         counttext.text = "3";
         SGSoundManager.Instance.PlayButtonSound();
-        yield return new WaitForSeconds(1f);
-        
-        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0.01f, 0.5f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
+
+        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0.01f, 0.3f);
+        yield return new WaitForSeconds(0.3f);
         counttext.text = "2";
         SGSoundManager.Instance.PlayButtonSound();
-        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 100f, 0.5f);
-        yield return new WaitForSeconds(1.2f);
-    
-        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0.01f, 0.5f);
-        yield return new WaitForSeconds(1f);
+        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 100f, 0.2f);
+        yield return new WaitForSeconds(.5f);
+
+        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0.01f, 0.3f);
+        yield return new WaitForSeconds(0.3f);
         counttext.text = "1";
         SGSoundManager.Instance.PlayButtonSound();
-        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 100f, 0.5f);
-        yield return new WaitForSeconds(1.2f);
+        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 100f, 0.2f);
+        yield return new WaitForSeconds(0.5f);
 
-        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0.01f, 0.5f);
-        yield return new WaitForSeconds(1f);
+        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0.01f, 0.3f);
+        yield return new WaitForSeconds(0.3f);
         counttext.text = "GO!";
-        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 100f, 0.5f);
-        yield return new WaitForSeconds(1.5f);
-        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0, 0.3f);
+        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 100f, 0.2f);
+        yield return new WaitForSeconds(0.5f);
+        LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0, 0.2f);
 
         SGGameManager.Instance.Stage_Start();
 
