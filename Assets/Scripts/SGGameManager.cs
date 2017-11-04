@@ -46,6 +46,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     public GameObject GameOverPanel;
 
     IntReactiveProperty monsterCount = new IntReactiveProperty();
+    System.IDisposable spawnDis;
 
     // Use this for initialization
     void Start() {
@@ -126,7 +127,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         float duration = float.Parse(waveInfo["duration"].ToString());
        if (int.Parse(waveInfo["starttime"].ToString()) <= startTime)
         {
-            Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
+            spawnDis = Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
                 .Take(monsterCount.Value).Subscribe(_ => {
                     GameObject mon = Instantiate<GameObject>(monsterPrefab, CurrentMonsterStartPoint.position, Quaternion.identity, MonsterSpawn);
                 });
@@ -138,6 +139,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     void MonstersStop()
     {
         MonsterSpawn.gameObject.Descendants().OfComponent<SGMonster>().ForEach(_ => _.SetMoveable(false));
+        spawnDis.Dispose();
     }
 
     void StageClear()
@@ -150,6 +152,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         int currentScore = ((int)hero.GetCurrentHP * 100) + (remainTime * 100);
         SGGameData.Instance.GameScore += currentScore;
 
+        SGPostScore.Instance.PostScore();
         GameClearPanel.SetActive(true);
         GameClearPanel.GetComponent<SGGameClear>().texts(remainTime, (int)hero.GetCurrentHP, currentScore);
 
@@ -168,7 +171,10 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     {
         timerSlider.TimerStop();
         MonstersStop();
+        SGPostScore.Instance.PostScore();
         GameOverPanel.SetActive(true);
+        
+        GameOverPanel.GetComponent<SGGameend>().SetData(SGGameData.Instance.GameNickname, SGGameData.Instance.GameScore.ToString());
     }
 
     public void HeroDie()

@@ -20,6 +20,7 @@ public class SGLogin : MonoBehaviour {
 
         ReqLogin req = new ReqLogin();
         req.nickname = nicknameText.text;
+        SGGameData.Instance.GameNickname = req.nickname;
 
         string stringJson = JsonMapper.ToJson(req);
 
