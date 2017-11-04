@@ -129,11 +129,13 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         if (waveInfo == null)
             return;
 
-        GameObject monsterPrefab = monsterPrefabs.Where(_ => _.name == waveInfo["prefab"].ToString()).FirstOrDefault();
-        int mCount = int.Parse(waveInfo["Count"].ToString());
-        float duration = float.Parse(waveInfo["duration"].ToString());
-       if (int.Parse(waveInfo["starttime"].ToString()) <= startTime)
+       if (float.Parse(waveInfo["starttime"].ToString()) <= startTime)
         {
+            GameObject monsterPrefab = monsterPrefabs.Where(_ => _.name == waveInfo["prefab"].ToString()).FirstOrDefault();
+            int mCount = int.Parse(waveInfo["Count"].ToString());
+            float duration = float.Parse(waveInfo["duration"].ToString());
+
+
             spawnDis = Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
                 .Take(mCount).Subscribe(_ => {
                     GameObject mon = Instantiate<GameObject>(monsterPrefab, CurrentMonsterStartPoint.position, Quaternion.identity, MonsterSpawn);
@@ -168,6 +170,8 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     {
         if (stageJson["nextstage"].ToString() != "endstage")
             SceneManager.LoadScene(stageJson["nextstage"].ToString());
+        else
+            SceneManager.LoadScene("StageStartEnd");
     }
 
     public void Game_Fail()
