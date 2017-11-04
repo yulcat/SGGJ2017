@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 445158737}
   - component: {fileID: 445158736}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SGLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nicknameText: {fileID: 1821622386}
+  popup: {fileID: 1387870112}
 --- !u!4 &445158737
 Transform:
   m_ObjectHideFlags: 0
@@ -829,7 +830,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068409808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 382, y: 158.5, z: 0}
+  m_LocalPosition: {x: 360, y: 640, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2074184723}
