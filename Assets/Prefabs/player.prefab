@@ -70,8 +70,6 @@ GameObject:
   - component: {fileID: 4444890471077236}
   - component: {fileID: 114645441870260582}
   - component: {fileID: 50177236034910184}
-  - component: {fileID: 114919009632096128}
-  - component: {fileID: 114602283272425804}
   - component: {fileID: 58942974347665740}
   m_Layer: 0
   m_Name: player
@@ -301,33 +299,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114602283272425804
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1845510676617736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92fe9c31e6d8ff459fde115423569bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 100
-  moveSpeed: 3
 --- !u!114 &114645441870260582
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1845510676617736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92fe9c31e6d8ff459fde115423569bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 100
-  moveSpeed: 3
---- !u!114 &114919009632096128
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

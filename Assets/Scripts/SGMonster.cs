@@ -89,10 +89,11 @@ public class SGMonster : SGCharacter
         actionState = SGE_MONSTER_ACTION_STATE.ATTACK_TO_BASE;
     }
 
-    public override void AnyDamage(float damage)
+    public override bool AnyDamage(float damage, System.Guid guid)
     {
-        base.AnyDamage(damage);
+        if (!base.AnyDamage(damage, guid)) return false;
         myAnimator.SetTrigger("Hit");
+        return true;
     }
 
 
