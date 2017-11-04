@@ -69,9 +69,7 @@ public class SGGameClear : MonoBehaviour {
 	}
 
 	public void nextscenebtn(){
-
-	 SceneManager.LoadScene(stagenumber+1);
-
+        SGGameManager.Instance.GoToNextStage();
 	}
 
 	public void texts(int remainTime, int remainHP, int score){

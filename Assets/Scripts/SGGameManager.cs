@@ -50,6 +50,8 @@ public class SGGameManager : SGSingleton<SGGameManager> {
 
     // Use this for initialization
     void Start() {
+        currentStageNum.Value = int.Parse(SceneManager.GetActiveScene().name.Substring(5));
+
         //게임스테이트에 따라
         gameState.Subscribe(_ =>
         {
@@ -155,11 +157,12 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         SGPostScore.Instance.PostScore();
         GameClearPanel.SetActive(true);
         GameClearPanel.GetComponent<SGGameClear>().texts(remainTime, (int)hero.GetCurrentHP, currentScore);
+    }
 
-        /*
+    public void GoToNextStage()
+    {
         if (stageJson["nextstage"].ToString() != "endstage")
             SceneManager.LoadScene(stageJson["nextstage"].ToString());
-            */
     }
 
     public void Game_Fail()
