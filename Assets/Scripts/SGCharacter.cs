@@ -16,6 +16,7 @@ public class SGCharacter : MonoBehaviour
     public float GetCurrentHP { get { return currentHP; } }
     public string hitEffect;
     Dictionary<Guid, float> attacks = new Dictionary<Guid, float>();
+    protected bool movable;
 
     public enum SGE_ALIVE_STATE
     {
@@ -60,6 +61,27 @@ public class SGCharacter : MonoBehaviour
             aliveState = SGE_ALIVE_STATE.DEAD;
         return true;
     }
+
+    public bool AnyDamage(float damage, Guid guid, float stun)
+    {
+        if (stun > 0)
+            SetUnmovable(stun);
+        return AnyDamage(damage, guid);
+    }
+
+    IEnumerator CoSetUnmovable(float time)
+    {
+        StopAllCoroutines();
+        movable = false;
+        yield return new WaitForSeconds(time);
+        movable = true;
+    }
+
+    protected void SetUnmovable(float time)
+    {
+        StartCoroutine(CoSetUnmovable(time));
+    }
+
 
     //힐이 있을지 모르지만 힐을 받으면
     public void AnyHeal(float heal)

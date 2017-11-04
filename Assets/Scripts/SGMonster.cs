@@ -54,7 +54,7 @@ public class SGMonster : SGCharacter
 
         gameObject.FixedUpdateAsObservable().Subscribe(_ =>
         {
-
+            if (!movable) return;
             if (actionState == SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION || actionState == SGE_MONSTER_ACTION_STATE.TRACE_HERO)
             {
                 Vector3 destination = Vector3.zero;
