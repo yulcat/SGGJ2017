@@ -6,7 +6,7 @@ public class WoodTrap : MonoBehaviour {
     public GameObject[] RedFloor;
     public int randoms;
     public GameObject WoodAttack;
-    Vector3 WoodSpawPoint;
+    public GameObject[] WoodSpawPoint;
     // Use this for initialization
     void Start () {
         StartCoroutine(RandomSpawn());
@@ -14,7 +14,7 @@ public class WoodTrap : MonoBehaviour {
     IEnumerator RandomSpawn()
     {
         print("Check");
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(15);
             if (randoms == 0)
             {
                 RedFloor[0].SetActive(true);
@@ -68,7 +68,20 @@ public class WoodTrap : MonoBehaviour {
         RedFloor[1].SetActive(false);
         RedFloor[2].SetActive(false);
         StartCoroutine(RandomSpawn());
-        //Instantiate(WoodAttack, Vector3(-2.42f, 6.01f, -0.06f,Quaternion.identity));
+        if (randoms == 0)
+        {
+            
+            Instantiate(WoodAttack, WoodSpawPoint[2].transform.position = new Vector3(2.50f, 6.04f, 0.0f), Quaternion.identity);
+        }
+        else if (randoms == 1)
+        {
+            Instantiate(WoodAttack, WoodSpawPoint[1].transform.position = new Vector3(0.11f, 6.04f, 0.0f), Quaternion.identity);
+        }
+        else if (randoms == 2)
+        {
+            Instantiate(WoodAttack, WoodSpawPoint[0].transform.position = new Vector3(-2.4f, 6.04f, 0.0f), Quaternion.identity);
+        }
+        
     }
 	// Update is called once per frame
 	void Update () {
