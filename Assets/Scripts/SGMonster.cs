@@ -47,7 +47,8 @@ public class SGMonster : SGCharacter
         gameObject.UpdateAsObservable().Subscribe(_ =>
         {
             float distanceToHero = Vector3.Distance(transform.position, SGGameManager.Instance.hero.transform.position);
-            pattern.SetActionState(distanceToHero);
+            float distanceToBuddy = Vector3.Distance(transform.position, SGGameManager.Instance.BuddyTransform.position);
+            pattern.SetActionState(distanceToHero, distanceToBuddy);
             if (GetAliveState == SGE_ALIVE_STATE.DEAD)
             {
                 SGGameManager.Instance.MonsterDie();
@@ -86,7 +87,7 @@ public class SGMonster : SGCharacter
         return true;
     }
 
-    interface IMonsterPattern { void SetActionState(float distance); void PerformAction(); void AttackBase(); }
+    interface IMonsterPattern { void SetActionState(float distance, float buddyDistance); void PerformAction(); void AttackBase(); }
     class NormalZombie : IMonsterPattern
     {
         SGE_MONSTER_ACTION_STATE actionState = SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION;
@@ -97,7 +98,7 @@ public class SGMonster : SGCharacter
             me = parent;
         }
 
-        public void SetActionState(float distanceToHero)
+        public void SetActionState(float distanceToHero, float distanceToBuddy)
         {
             if (distanceToHero <= me.sightLength)
             {
@@ -105,6 +106,14 @@ public class SGMonster : SGCharacter
                 if (distanceToHero <= 1f)
                 {
                     actionState = SGE_MONSTER_ACTION_STATE.ATTACK_TO_HERO;
+                }
+            }
+            else if(distanceToBuddy <= me.sightLength)
+            {
+                actionState = SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION;
+                if (distanceToBuddy <= 1f)
+                {
+                    actionState = SGE_MONSTER_ACTION_STATE.ATTACK_TO_BASE;
                 }
             }
             else if (actionState != SGE_MONSTER_ACTION_STATE.ATTACK_TO_BASE)
@@ -167,7 +176,7 @@ public class SGMonster : SGCharacter
             me.body.velocity = me.transform.up * vertical + me.transform.right * horizontal;
         }
 
-        public void SetActionState(float distanceToHero)
+        public void SetActionState(float distanceToHero, float distanceToBuddy)
         {
             tracingDestination = distanceToHero > me.sightLength;
         }
