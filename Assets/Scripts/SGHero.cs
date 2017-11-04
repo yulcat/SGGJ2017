@@ -11,7 +11,6 @@ public class SGHero : SGCharacter
 
     Animator myAnimator;
 
-    CompositeDisposable heroDisposable = new CompositeDisposable();
     Rigidbody2D body;
     // Use this for initialization
     override protected void Start()
@@ -42,6 +41,7 @@ public class SGHero : SGCharacter
             body.velocity = Vector3.zero;
         }
     }
+
     void RotateToLookup(Vector3 target)
     {
         Vector3 myPos = gameObject.Child("Body").transform.up;
@@ -52,15 +52,17 @@ public class SGHero : SGCharacter
     {
         if (!base.AnyDamage(damage, guid)) return false;
         if (GetAliveState == SGE_ALIVE_STATE.DEAD)
-        {
-            myAnimator.SetBool("Dead", true);
-            heroDisposable.Clear();
-            SGGameManager.Instance.HeroDie();
-            movable = false;
-            GetComponent<Rigidbody2D>().simulated = false;
-        }
+            PlayerDead();
         else
             myAnimator.SetTrigger("Hit");
         return true;
+    }
+
+    void PlayerDead()
+    {
+        myAnimator.SetBool("Dead", true);
+        SGGameManager.Instance.HeroDie();
+        movable = false;
+        GetComponent<Rigidbody2D>().simulated = false;
     }
 }
