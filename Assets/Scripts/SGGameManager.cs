@@ -128,12 +128,12 @@ public class SGGameManager : SGSingleton<SGGameManager> {
             return;
 
         GameObject monsterPrefab = monsterPrefabs.Where(_ => _.name == waveInfo["prefab"].ToString()).FirstOrDefault();
-        monsterCount.Value = int.Parse(waveInfo["Count"].ToString());
+        int mCount = int.Parse(waveInfo["Count"].ToString());
         float duration = float.Parse(waveInfo["duration"].ToString());
        if (int.Parse(waveInfo["starttime"].ToString()) <= startTime)
         {
             spawnDis = Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
-                .Take(monsterCount.Value).Subscribe(_ => {
+                .Take(mCount).Subscribe(_ => {
                     GameObject mon = Instantiate<GameObject>(monsterPrefab, CurrentMonsterStartPoint.position, Quaternion.identity, MonsterSpawn);
                 });
 
