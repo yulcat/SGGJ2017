@@ -16,7 +16,7 @@ public class SGCharacter : MonoBehaviour
     public float GetCurrentHP { get { return currentHP; } }
     public string hitEffect;
     Dictionary<Guid, float> attacks = new Dictionary<Guid, float>();
-    protected bool movable;
+    protected bool movable = true;
 
     public enum SGE_ALIVE_STATE
     {
