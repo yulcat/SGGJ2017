@@ -54,4 +54,6 @@ public class SGCharacter : MonoBehaviour
     {
         currentMoveSpeed = moveSpeed;
     }
+
+
 }

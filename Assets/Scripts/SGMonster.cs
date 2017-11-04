@@ -41,10 +41,20 @@ public class SGMonster : SGCharacter {
             else
                 destination = SGGameManager.Instance.hero.transform.position;
 
+            RotateToLookup((transform.position - destination).normalized);
+
             transform.position = Vector2.MoveTowards(transform.position,
                 destination, Time.deltaTime * currentMoveSpeed);
         });
 
         base.Start();
 	}
+
+    void RotateToLookup(Vector3 target)
+    {
+        
+        Vector3 myPos = transform.up;
+        Debug.Log(myPos);
+        transform.up = Vector3.Slerp(myPos, -1f * target, 1f);
+    }
 }
