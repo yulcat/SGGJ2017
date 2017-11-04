@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33197163910735340}
   - component: {fileID: 23040502254867478}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: rasers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,8 +15,9 @@ public class SGGameStart : SGSingleton<SGGameStart>
 
     public GameObject Counttextobj;
     public Text counttext;
+    bool clicked = false;
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         stagenumber = SGGameManager.Instance.CurrentStageNum;
         ShowText(stagenumber);
@@ -28,10 +29,14 @@ public class SGGameStart : SGSingleton<SGGameStart>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!clicked)
         {
-            gameObject.Child("Panel").SetActive(false);
-            StartCoroutine(BlinkCountText());
+            if (Input.GetMouseButtonDown(0))
+            {
+                gameObject.Child("Panel").SetActive(false);
+                StartCoroutine(BlinkCountText());
+                clicked = true;
+            }
         }
     }
 
@@ -72,9 +77,6 @@ public class SGGameStart : SGSingleton<SGGameStart>
                 TitleText.text = "마지막 장 : 영원한 사랑";
                 DescriptionText.text = "그 둘의 사랑은 영원할 것인가?\n대사는 좀 나중에 생각해봅시다";
                 break;
-
-
-
         }
 
     }
@@ -101,6 +103,8 @@ public class SGGameStart : SGSingleton<SGGameStart>
         LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 100f, 1f);
         yield return new WaitForSeconds(1.5f);
         LeanTween.scale(Counttextobj.GetComponent<RectTransform>(), Counttextobj.GetComponent<RectTransform>().localScale * 0, 0.3f);
+
+        SGGameManager.Instance.Stage_Start();
 
     }
 }

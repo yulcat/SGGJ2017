@@ -9,6 +9,11 @@ public class SGTimerSlider : MonoBehaviour {
 
     public SGTimer timer = new SGTimer();
 
+    public void SetTimerText(int time)
+    {
+        gameObject.Child("Text").GetComponent<Text>().text = System.TimeSpan.FromSeconds(time).ToString().Substring(3);
+    }
+
     public void TimerStart(int time)
     {
         GetComponent<Slider>().maxValue = time;
@@ -19,6 +24,11 @@ public class SGTimerSlider : MonoBehaviour {
         };
         timer.SetTime(time);
         timer.TimerStart();
+    }
+
+    public void TimerStop()
+    {
+        timer.TimerStop();
     }
 
 }
