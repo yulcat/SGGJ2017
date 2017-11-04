@@ -39,6 +39,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     public int currentWaveNum = 1;
 
     public GameObject[] monsterPrefabs;
+    public SGTimerSlider timerSlider;
 
     // Use this for initialization
     void Start () {
@@ -69,16 +70,21 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         stageJson = SGUtils.GetJsonArrayForKey(JsonMapper.ToObject(stageJsonAsset.text), "stage", SceneManager.GetActiveScene().name);
         stageTime = int.Parse(stageJson["playtime"].ToString());
 
-        OnPlayTime(0);
+        timerSlider.TimerStart(stageTime);
     }
 
-    public void OnPlayTime(int startTime) //몬스터 리스폰을 위하여
+
+    public void OnPlayTime(int remainTime) //몬스터 리스폰을 위하여
     {
-       JsonData waveInfo =  SGUtils.GetJsonArrayForKey(stageJson["waveInfo"], "wave", currentWaveNum);
+        int startTime = stageTime - remainTime;
+        JsonData waveInfo =  SGUtils.GetJsonArrayForKey(stageJson["waveInfo"], "wave", currentWaveNum);
+        if (waveInfo == null)
+            return;
+
         GameObject monsterPrefab = monsterPrefabs.Where(_ => _.name == waveInfo["prefab"].ToString()).FirstOrDefault();
         int count = int.Parse(waveInfo["Count"].ToString());
         float duration = float.Parse(waveInfo["duration"].ToString());
-       if (int.Parse(waveInfo["starttime"].ToString()) >= startTime)
+       if (int.Parse(waveInfo["starttime"].ToString()) <= startTime)
         {
             Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
                 .Take(count).Subscribe(_ => {
