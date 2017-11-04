@@ -22,7 +22,13 @@ public class SGGameData : SGSingleton<SGGameData> {
         base.Awake();
     }
 
+    [HideInInspector]
+    public string GameNickname = "";
+
+    [HideInInspector]
     public int GameScore = 0;
+
+
 
 
 
