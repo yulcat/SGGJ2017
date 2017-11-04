@@ -25,8 +25,9 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     IntReactiveProperty currentStageNum = new IntReactiveProperty(1);    //현재 스테이지 번호
 
     public Transform MonsterSpawn;
+    public Transform BuddyTransform;
     public Transform CurrentMonsterStartPoint { get { return MonsterSpawn.gameObject.Child("StartPoint").transform; } }
-    public Transform CurrentMonsterDestination { get { return MonsterSpawn.gameObject.Child("Destination").transform; } }
+    public Transform CurrentMonsterDestination { get { return BuddyTransform; } }
 
     public TextAsset stageJsonAsset;
     JsonData stageJson;

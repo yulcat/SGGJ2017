@@ -13,10 +13,10 @@ public class SGMonsterAttack : MonoBehaviour
     {
         float damage = GetComponentInParent<SGMonster>().attackDamage;
         guid = new System.Guid();
-        Observable.Merge(gameObject.OnTriggerEnter2DAsObservable(), gameObject.OnTriggerStay2DAsObservable()).Where(_ => _.GetComponent<SGHero>() != null).
+        Observable.Merge(gameObject.OnTriggerEnter2DAsObservable(), gameObject.OnTriggerStay2DAsObservable()).Where(_ => _.GetComponent<SGHero>() != null || _.GetComponent<SGDestination>() != null).
             Subscribe(_ =>
             {
-                _.GetComponent<SGHero>().AnyDamage(damage, guid, stun);
+                SGGameManager.Instance.hero.AnyDamage(damage, guid, stun);
             });
             SGSoundManager.Instance.PlaySounds(1);
     }

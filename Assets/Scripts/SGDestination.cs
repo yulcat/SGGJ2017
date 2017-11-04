@@ -10,7 +10,7 @@ public class SGDestination : MonoBehaviour {
 	void Start () {
         gameObject.OnTriggerEnter2DAsObservable().Where(_ => _.GetComponent<SGMonster>() != null)
             .Subscribe(_ => {
-                _.GetComponent<SGMonster>().AttackToBase();
+                _.GetComponent<SGMonster>().AttackToBase();                
             });
 	}
 }

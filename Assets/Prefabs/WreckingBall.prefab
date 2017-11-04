@@ -53,7 +53,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4337166281046364}
-  - component: {fileID: 95868385404798192}
   m_Layer: 0
   m_Name: press
   m_TagString: Untagged
@@ -87,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256939255518982}
   - component: {fileID: 58586845029464878}
+  - component: {fileID: 114405728146728090}
   m_Layer: 0
   m_Name: hitArea
   m_TagString: Untagged
@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1839201026012684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: -3.98, z: 0}
+  m_LocalPosition: {x: 8.652184, y: -10.431593, z: -14.6422415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4337166281046364}
@@ -236,23 +236,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95868385404798192
-Animator:
-  serializedVersion: 3
+--- !u!114 &114405728146728090
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1656934192269000}
+  m_GameObject: {fileID: 1887295591962048}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 869dfea06532c414abb3cb2d8c9bc988, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8065313951884914aabfef4c83d03671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  stun: 0
 --- !u!114 &114633711403256430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,12 +274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748ce1567192f98419589f2b40b5e517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shadow: {fileID: 1839201026012684}
-  DropSPeed: 5
-  xValueMax: 2.71
-  xValueMin: -3.07
-  yValueMax: 5.01
-  yValueMin: -3.98
   WreckingBallRotationTime: 7
   WreckingBallDropTime: 2
 --- !u!119 &119177344297561826
@@ -300,7 +290,7 @@ Projector:
   m_AspectRatio: 1
   m_Orthographic: 1
   m_OrthographicSize: 1.4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: e30ff3588e719f34bbf0c66f22d97487, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 0
