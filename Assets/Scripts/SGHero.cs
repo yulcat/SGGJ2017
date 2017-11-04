@@ -5,7 +5,7 @@ using CnControls;
 using UniRx;
 using UniRx.Triggers;
 
-public class SGHero : SGBCharacter {
+public class SGHero : SGCharacter {
 
 	// Use this for initialization
 	override protected void Start () {

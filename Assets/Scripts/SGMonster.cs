@@ -5,7 +5,7 @@ using UniRx;
 using UniRx.Triggers;
 using Unity.Linq;
 
-public class SGMonster : SGBCharacter {
+public class SGMonster : SGCharacter {
 
     public enum SGE_MONSTER_ACTION_STATE
     {

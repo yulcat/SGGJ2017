@@ -45,7 +45,7 @@ public class SGTrap : MonoBehaviour {
         while(trigger)
         {
             yield return new WaitForSeconds(1);
-            collision.GetComponent<SGBCharacter>().AnyDamage(5);
+            collision.GetComponent<SGCharacter>().AnyDamage(5);
         }
     }
 

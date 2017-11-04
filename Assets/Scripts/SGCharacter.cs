@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SGBCharacter : MonoBehaviour
+public class SGCharacter : MonoBehaviour
 {
 
     public float maxHP;
