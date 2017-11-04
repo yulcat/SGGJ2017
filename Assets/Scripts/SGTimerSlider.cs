@@ -12,11 +12,14 @@ public class SGTimerSlider : MonoBehaviour {
     public void SetTimerText(int time)
     {
         gameObject.Child("Text").GetComponent<Text>().text = System.TimeSpan.FromSeconds(time).ToString().Substring(3);
+        GetComponent<Slider>().maxValue = time;
+        GetComponent<Slider>().value = time;
     }
 
     public void TimerStart(int time)
     {
         GetComponent<Slider>().maxValue = time;
+        GetComponent<Slider>().value = time;
         timer.OnUpdate = (n) => {
             GetComponent<Slider>().value = n;
             gameObject.Child("Text").GetComponent<Text>().text = System.TimeSpan.FromSeconds(n).ToString().Substring(3);
