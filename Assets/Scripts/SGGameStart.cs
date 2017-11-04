@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Linq;
 
-public class SGGameStart : MonoBehaviour {
+public class SGGameStart : SGSingleton<SGGameStart> {
 
 	public int stagenumber = SGGameManager.Instance.CurrentStageNum;
 
