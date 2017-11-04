@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 using System;
+using System.Linq;
 
 public class SGCharacter : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class SGCharacter : MonoBehaviour
         if (!GuidCheck(guid)) return false;
         currentHP -= damage;
         currentHP = Mathf.Max(0f, currentHP);
-        
+
         if (!string.IsNullOrEmpty(hitEffect)) EffectSpawner.SetEffect(hitEffect, transform.position);
 
         if (currentHP == 0f)
@@ -96,20 +97,29 @@ public class SGCharacter : MonoBehaviour
         currentHP = Mathf.Min(maxHP, currentHP);
     }
 
-    public void DownMoveSpeed(float multiply)
+    Dictionary<MoveSpeedDown, float> tars = new Dictionary<MoveSpeedDown, float>();
+
+    public void DownMoveSpeed(float multiply, MoveSpeedDown from)
     {
         print("Down");
-        currentMoveSpeed = currentMoveSpeed * multiply;
+        tars.Add(from, multiply);
+        currentMoveSpeed = tars.Values.Aggregate(moveSpeed, (a, b) => a * b);
     }
 
-    public void BackMoveSpeed()
+    public void BackMoveSpeed(MoveSpeedDown from)
     {
         print("back");
-        currentMoveSpeed = moveSpeed;
+        tars.Remove(from);
+        if (tars.Count == 0)
+            currentMoveSpeed = moveSpeed;
+        else
+        {
+            currentMoveSpeed = tars.Values.Aggregate(moveSpeed, (a, b) => a * b);
+        }
     }
     public void Dead()
     {
         aliveState = SGE_ALIVE_STATE.DEAD;
-   
+
     }
 }
