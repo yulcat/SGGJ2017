@@ -33,6 +33,7 @@ public class SGGameClear : MonoBehaviour {
 		StartCoroutine(Clear());
 
         stagenumber = SGGameManager.Instance.CurrentStageNum;
+        GamestagetextUI();
     }
 	
 	// Update is called once per frame
@@ -40,8 +41,8 @@ public class SGGameClear : MonoBehaviour {
 		
 	}
 
-	public void GamestagetextUI(int stagenumber){
-		GamestageText.text = SGGameStart.Instance.DescriptionText.text;
+	public void GamestagetextUI(){
+		GamestageText.text = SGGameData.Instance.stageTitle;
 	}
 
 	IEnumerator Clear(){
