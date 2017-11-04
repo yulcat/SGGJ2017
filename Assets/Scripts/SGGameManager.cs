@@ -97,6 +97,11 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         gameState.Value = SGE_GameState.STAGE_START;
     }
 
+    public bool IsGameEnd()
+    {
+        return (gameState.Value != SGE_GameState.STAGE_START );
+    }
+
 
     void StageStart()
     {
