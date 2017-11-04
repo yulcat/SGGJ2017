@@ -60,7 +60,7 @@ public class SGGameClear : MonoBehaviour {
 		SGSoundManager.Instance.PlaySounds(7);
 		ScoreText.SetActive(true); // 여기서 최종 점수를 서버로 보낼 것 
 		yield return new WaitForSeconds(0.7f);
-		if (stagenumber != 5){ 
+		if (stagenumber != 3){ 
 			SGSoundManager.Instance.PlaySounds(7);
 			nextbtn.SetActive(true);
 		}

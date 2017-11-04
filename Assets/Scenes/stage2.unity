@@ -13207,6 +13207,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114698430478245762, guid: 6a40c906fb22e4e7b8927ce9492dae64,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a40c906fb22e4e7b8927ce9492dae64, type: 2}
   m_IsPrefabParent: 0
@@ -53720,12 +53725,12 @@ Prefab:
     - target: {fileID: 224633226340780128, guid: 539f3564def864b989da1965a136bad0,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 224633226340780128, guid: 539f3564def864b989da1965a136bad0,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 224633226340780128, guid: 539f3564def864b989da1965a136bad0,
         type: 2}
@@ -53834,7 +53839,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1655744301082574, guid: 539f3564def864b989da1965a136bad0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1655744301082574, guid: 539f3564def864b989da1965a136bad0, type: 2}
       propertyPath: m_Name
@@ -53864,6 +53869,10 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462647554716522, guid: 539f3564def864b989da1965a136bad0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114624577229842022, guid: 539f3564def864b989da1965a136bad0, type: 2}

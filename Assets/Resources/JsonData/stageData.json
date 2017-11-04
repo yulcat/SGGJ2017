@@ -38,24 +38,31 @@
                 "prefab": "zombie",
                 "Count": 10,
                 "duration": 1.5
+            },
+             {
+                "wave": 4,
+                "starttime": 25,
+                "prefab": "wheelZombie",
+                "Count": 2,
+                "duration": 10
             }
         ]
     },
     {
         "stage": "stage3",
         "nextstage": "endstage",
-        "playtime": 90,
+        "playtime": 120,
         "waveInfo": [
             {
                 "wave": 1,
                 "starttime": 0,
                 "prefab": "zombie",
-                "Count": 10,
+                "Count": 15,
                 "duration": 1.5
             },
             {
                 "wave": 2,
-                "starttime": 15,
+                "starttime": 20,
                 "prefab": "bigZombie",
                 "Count": 1,
                 "duration": 1
@@ -66,6 +73,13 @@
                 "prefab": "zombie",
                 "Count": 10,
                 "duration": 1.5
+            },
+             {
+                "wave": 4,
+                "starttime": 25,
+                "prefab": "wheelZombie",
+                "Count": 3,
+                "duration": 10
             }
         ]
     }
