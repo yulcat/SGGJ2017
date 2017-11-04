@@ -6,16 +6,18 @@ using UniRx;
 using UniRx.Triggers;
 using Unity.Linq;
 
-public class SGHero : SGCharacter {
+public class SGHero : SGCharacter
+{
 
     Animator myAnimator;
 
-
     CompositeDisposable heroDisposable = new CompositeDisposable();
-	// Use this for initialization
-	override protected void Start () {
+    Rigidbody2D body;
+    // Use this for initialization
+    override protected void Start()
+    {
         myAnimator = gameObject.Child("Body").GetComponent<Animator>();
-
+        body = GetComponent<Rigidbody2D>();
         gameObject.FixedUpdateAsObservable().Subscribe(_ =>
         {
             float h = CnInputManager.GetAxis("Horizontal");
@@ -24,15 +26,20 @@ public class SGHero : SGCharacter {
             RotateToLookup(new Vector3(h, v, 0f));
 
             if (h != 0f && v != 0f)
+            {
                 myAnimator.SetBool("Moving", true);
+                body.velocity = new Vector3(h, v, 0f) * currentMoveSpeed;
+            }
             else
+            {
                 myAnimator.SetBool("Moving", false);
+                body.velocity = Vector3.zero;
+            }
 
-            transform.Translate(new Vector3(h, v, 0f) * currentMoveSpeed * Time.deltaTime);
         }).AddTo(heroDisposable);
 
         base.Start();
-	}
+    }
     void RotateToLookup(Vector3 target)
     {
         Vector3 myPos = gameObject.Child("Body").transform.up;
@@ -44,8 +51,9 @@ public class SGHero : SGCharacter {
         base.AnyDamage(damage);
         if (GetAliveState == SGE_ALIVE_STATE.DEAD)
         {
-             myAnimator.SetBool("Dead", true);
+            myAnimator.SetBool("Dead", true);
             heroDisposable.Clear();
+            SGGameManager.Instance.HeroDie();
         }
         else
             myAnimator.SetTrigger("Hit");

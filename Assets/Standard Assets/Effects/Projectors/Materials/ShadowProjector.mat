@@ -43,7 +43,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+<<<<<<< HEAD
     - _Pow: 1.9471083
+=======
+    - _Pow: 11.3358345
+>>>>>>> 886220cd63997b72418764b37a98aca603ec266a
     - _Strength: 0.5
     m_Colors:
     - BumpMapScale: {r: 1, g: 1, b: 1, a: 1}

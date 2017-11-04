@@ -5,10 +5,12 @@ using UniRx;
 using UniRx.Triggers;
 using Unity.Linq;
 
-public class SGMonster : SGCharacter {
+public class SGMonster : SGCharacter
+{
 
     public enum SGE_MONSTER_ACTION_STATE
     {
+        IDLE,
         TRACE_DESTINATION,  //목적지로 이동
         TRACE_HERO,          //영웅을 향해 이동
         ATTACK_TO_HERO,
@@ -22,36 +24,38 @@ public class SGMonster : SGCharacter {
 
     float distanceToHero = Mathf.Infinity;   //영웅과의 거리
     Animator myAnimator;
+    Rigidbody2D body;
 
-	// Use this for initialization
-	override protected void Start () {
+    // Use this for initialization
+    override protected void Start()
+    {
         myAnimator = gameObject.GetComponentInChildren<Animator>();
+        body = GetComponent<Rigidbody2D>();
         gameObject.UpdateAsObservable().Subscribe(_ =>
         {
             float distanceToHero = Vector3.Distance(transform.position, SGGameManager.Instance.hero.transform.position);
 
-
-
             if (distanceToHero <= sightLength)
             {
                 actionState = SGE_MONSTER_ACTION_STATE.TRACE_HERO;
-                if(distanceToHero <= 1f)
+                if (distanceToHero <= 1f)
                 {
                     actionState = SGE_MONSTER_ACTION_STATE.ATTACK_TO_HERO;
                 }
             }
             else if (actionState != SGE_MONSTER_ACTION_STATE.ATTACK_TO_BASE)
                 actionState = SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION;
-            
+
             if (GetAliveState == SGE_ALIVE_STATE.DEAD)
             {
                 Destroy(gameObject);
-            }        
+            }
         });
 
-        gameObject.FixedUpdateAsObservable().Subscribe(_ => {
+        gameObject.FixedUpdateAsObservable().Subscribe(_ =>
+        {
 
-            if(actionState == SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION || actionState == SGE_MONSTER_ACTION_STATE.TRACE_HERO)
+            if (actionState == SGE_MONSTER_ACTION_STATE.TRACE_DESTINATION || actionState == SGE_MONSTER_ACTION_STATE.TRACE_HERO)
             {
                 Vector3 destination = Vector3.zero;
 
@@ -62,8 +66,7 @@ public class SGMonster : SGCharacter {
 
                 RotateToLookup((transform.position - destination).normalized);
 
-                transform.position = Vector2.MoveTowards(transform.position,
-                    destination, Time.deltaTime * currentMoveSpeed);
+                body.velocity = (destination - transform.position).normalized * currentMoveSpeed;
             }
             else
             {
@@ -73,7 +76,7 @@ public class SGMonster : SGCharacter {
         });
 
         base.Start();
-	}
+    }
 
     void RotateToLookup(Vector3 target)
     {
@@ -91,4 +94,7 @@ public class SGMonster : SGCharacter {
         base.AnyDamage(damage);
         myAnimator.SetTrigger("Hit");
     }
+
+
+
 }

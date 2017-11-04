@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 public class SGCharacter : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class SGCharacter : MonoBehaviour
     protected float currentHP;
     protected float currentMoveSpeed;   //현재 이동속도
     public float GetCurrentHP { get { return currentHP; } }
+    CompositeDisposable continueDamageDIspose = new CompositeDisposable();
 
     public enum SGE_ALIVE_STATE
     {
@@ -59,5 +62,18 @@ public class SGCharacter : MonoBehaviour
     public void Dead()
     {
         aliveState = SGE_ALIVE_STATE.DEAD;
+    }
+
+    public void OnContinueDamage(float damage, float duration)
+    {
+        Observable.Interval(System.TimeSpan.FromSeconds(duration)).Subscribe(_ =>
+        {
+            AnyDamage(damage);
+        }).AddTo(continueDamageDIspose);
+    }
+
+    public void OffContinueDamage()
+    {
+        continueDamageDIspose.Clear();
     }
 }
