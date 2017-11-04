@@ -2281,6 +2281,7 @@ MonoBehaviour:
   GameStartPanel: {fileID: 750457353}
   GameClearPanel: {fileID: 957219149}
   GameOverPanel: {fileID: 1314707722}
+  GameScoreText: {fileID: 0}
 --- !u!1 &71912626
 GameObject:
   m_ObjectHideFlags: 0
@@ -10425,7 +10426,7 @@ Prefab:
     - target: {fileID: 224817242482092308, guid: 1605c404f39466f4fbdcca8055091209,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 246.85
+      value: 343.40002
       objectReference: {fileID: 0}
     - target: {fileID: 114367436224665220, guid: 1605c404f39466f4fbdcca8055091209,
         type: 2}
@@ -10499,22 +10500,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224820839626087792, guid: 1605c404f39466f4fbdcca8055091209,
     type: 2}
   m_PrefabInternal: {fileID: 271301809}
---- !u!1 &271301811 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1334279796162186, guid: 1605c404f39466f4fbdcca8055091209,
-    type: 2}
-  m_PrefabInternal: {fileID: 271301809}
---- !u!114 &271301812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 271301811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd7164cb65b01f4d94a44243bafcd70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &271370612
 GameObject:
   m_ObjectHideFlags: 0
@@ -78766,7 +78751,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -640
+      value: -5.625
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
       propertyPath: m_LocalPosition.z

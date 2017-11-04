@@ -17,6 +17,7 @@ public class SGHPbar : MonoBehaviour {
 	void Update () {
         GetComponent<Slider>().value = SGGameManager.Instance.hero.GetCurrentHP;
         gameObject.Child("Text").GetComponent<Text>().text = ((int)SGGameManager.Instance.hero.GetCurrentHP).ToString();
+        gameObject.Child("ScoreText").GetComponent<Text>().text = "Score : " + SGGameData.Instance.GameScore.ToString();
 
     }
 }

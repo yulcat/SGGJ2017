@@ -49,6 +49,8 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     IntReactiveProperty monsterCount = new IntReactiveProperty();
     System.IDisposable spawnDis;
 
+    public GameObject GameScoreText;
+
     // Use this for initialization
     void Start() {
         currentStageNum.Value = int.Parse(SceneManager.GetActiveScene().name.Substring(5));
