@@ -3065,6 +3065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hero: {fileID: 1200083049}
   MonsterSpawn: {fileID: 271790033}
+  BuddyTransform: {fileID: 1468161677}
   stageJsonAsset: {fileID: 4900000, guid: 41affcdd43cd4b344bd5efd1c554f840, type: 3}
   stageTime: 0
   currentWaveNum: 1
@@ -13658,10 +13659,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 720, y: 1280}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -61903,11 +61904,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4900532010540642, guid: d2cd63b09c44a4e0db029054bb2ea403, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4900532010540642, guid: d2cd63b09c44a4e0db029054bb2ea403, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -12.41
+      value: -11.92
       objectReference: {fileID: 0}
     - target: {fileID: 4900532010540642, guid: d2cd63b09c44a4e0db029054bb2ea403, type: 2}
       propertyPath: m_LocalPosition.z
@@ -61940,6 +61941,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2cd63b09c44a4e0db029054bb2ea403, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1468161677 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4900532010540642, guid: d2cd63b09c44a4e0db029054bb2ea403,
+    type: 2}
+  m_PrefabInternal: {fileID: 1468161676}
 --- !u!1001 &1470889058
 Prefab:
   m_ObjectHideFlags: 0
@@ -80025,7 +80031,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -640
+      value: -875.17236
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
       propertyPath: m_LocalPosition.z
@@ -80090,18 +80096,6 @@ Prefab:
     - target: {fileID: 22400004, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
-      propertyPath: HideOnRelease
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
-      propertyPath: MoveBase
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb945e2a87718084184a72db9cf1ee27, type: 2}
