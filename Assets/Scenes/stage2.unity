@@ -53807,30 +53807,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114089072377873284, guid: 539f3564def864b989da1965a136bad0,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 224273482070524754, guid: 539f3564def864b989da1965a136bad0,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.4000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 224273482070524754, guid: 539f3564def864b989da1965a136bad0,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 224347800693242636, guid: 539f3564def864b989da1965a136bad0,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1655744301082574, guid: 539f3564def864b989da1965a136bad0, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 539f3564def864b989da1965a136bad0, type: 2}
   m_IsPrefabParent: 0
