@@ -31,6 +31,9 @@ public class SGGameData : SGSingleton<SGGameData> {
     [HideInInspector]
     public string stageTitle = "";
 
+    [HideInInspector]
+    public bool inifinityMode = false;
+
 
 
 

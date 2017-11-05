@@ -16,6 +16,9 @@ public class SGLogin : MonoBehaviour {
 
     public void OnclickLogin()
     {
+        SGGameData.Instance.GameNickname = "";
+        SGGameData.Instance.GameScore = 0;
+
         var httpClient = SGHttpClient.Instance;
 
         ReqLogin req = new ReqLogin();
@@ -42,7 +45,17 @@ public class SGLogin : MonoBehaviour {
         {
             SGGameData.Instance.GameNickname = res.nickname;
             nickname = res.nickname;
-            SceneManager.LoadScene("stage1");
+
+            if (SGGameData.Instance.inifinityMode)
+            {
+                SceneManager.LoadScene("stage4");
+            }
+            else
+            {
+                SceneManager.LoadScene("stage1");
+            }
+
+                
         }
     }
 }

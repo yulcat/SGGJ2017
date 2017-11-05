@@ -14,6 +14,9 @@ public class SGLoginPopup : MonoBehaviour {
 
     public void OnClickUseNickName()
     {
-        SceneManager.LoadScene("stage1");
+        if (SGGameData.Instance.inifinityMode)
+            SceneManager.LoadScene("stage4");
+        else
+            SceneManager.LoadScene("stage1");
     }
 }

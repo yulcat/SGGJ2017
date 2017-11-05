@@ -13,13 +13,16 @@ public class SGTitleScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		creditui.SetActive(false);
+        SGGameData.Instance.GameNickname = "";
+        SGGameData.Instance.GameScore = 0;
+        creditui.SetActive(false);
 		StartCoroutine(Blink());
 		
 	}
 	
     public void GotoLogin()
     {
+        SGGameData.Instance.inifinityMode = false;
         SceneManager.LoadScene("LogIn");
     }
 	 
@@ -47,7 +50,7 @@ public class SGTitleScene : MonoBehaviour {
 			}
 	}	
 	public void Toinfinity(){
-
-		SceneManager.LoadScene("stage4");
+        SGGameData.Instance.inifinityMode = true;
+		SceneManager.LoadScene("LogIn");
 	}
 }

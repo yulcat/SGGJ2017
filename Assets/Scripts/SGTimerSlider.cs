@@ -18,15 +18,33 @@ public class SGTimerSlider : MonoBehaviour {
 
     public void TimerStart(int time)
     {
-        GetComponent<Slider>().maxValue = time;
-        GetComponent<Slider>().value = time;
-        timer.OnUpdate = (n) => {
-            GetComponent<Slider>().value = n;
-            gameObject.Child("Text").GetComponent<Text>().text = System.TimeSpan.FromSeconds(n).ToString().Substring(3);
-            SGGameManager.Instance.OnPlayTime(n);
-        };
-        timer.SetTime(time);
-        timer.TimerStart();
+        if (!SGGameData.Instance.inifinityMode)
+        {
+            GetComponent<Slider>().maxValue = time;
+            GetComponent<Slider>().value = time;
+            timer.OnUpdate = (n) =>
+            {
+
+                GetComponent<Slider>().value = n;
+                gameObject.Child("Text").GetComponent<Text>().text = System.TimeSpan.FromSeconds(n).ToString().Substring(3);
+                SGGameManager.Instance.OnPlayTime(n);
+            };
+            timer.SetTime(time);
+            timer.TimerStart();
+        }
+        else
+        {
+            GetComponent<Slider>().maxValue = int.MaxValue;
+            GetComponent<Slider>().value = int.MaxValue;
+            timer.OnUpdate = (n) =>
+            {
+                //GetComponent<Slider>().value = n;
+                //gameObject.Child("Text").GetComponent<Text>().text = System.TimeSpan.FromSeconds(n).ToString().Substring(3);
+                SGGameManager.Instance.OnPlayTime(n);
+            };
+            timer.SetTime(time);
+            timer.TimerStart();
+        }
     }
 
     public void TimerStop()

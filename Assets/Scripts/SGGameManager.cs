@@ -83,8 +83,10 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         stageJson = SGUtils.GetJsonArrayForKey(JsonMapper.ToObject(stageJsonAsset.text), "stage", SceneManager.GetActiveScene().name);
         stageTime = int.Parse(stageJson["playtime"].ToString());
 
-        timerSlider.SetTimerText(stageTime);
-
+        if (!SGGameData.Instance.inifinityMode)
+        {
+            timerSlider.SetTimerText(stageTime);
+        }
 
         for(int s=0;s< stageJson["waveInfo"].Count;s++)
         {
@@ -113,7 +115,14 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         //스테이지 시간
         GameStartPanel.SetActive(false);
         hero.SetMoveable(true);
-        timerSlider.TimerStart(stageTime);
+        if (!SGGameData.Instance.inifinityMode)
+        {
+            timerSlider.TimerStart(stageTime);
+        }
+        else
+        {
+            timerSlider.TimerStart(int.MaxValue);
+        }
         
     }
 
@@ -129,6 +138,11 @@ public class SGGameManager : SGSingleton<SGGameManager> {
         }
 
         int startTime = stageTime - remainTime;
+        if (SGGameData.Instance.inifinityMode)
+        {
+            startTime = int.MaxValue - remainTime;
+        }
+
         JsonData waveInfo =  SGUtils.GetJsonArrayForKey(stageJson["waveInfo"], "wave", currentWaveNum);
         if (waveInfo == null)
             return;
