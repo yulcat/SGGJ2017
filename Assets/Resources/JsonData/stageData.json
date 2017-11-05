@@ -8,7 +8,7 @@
                 "wave": 1,
                 "starttime": 0,
                 "prefab": "zombie",
-                "Count": 20,
+                "Count": 15,
                 "duration": 1.5
             }
         ]
@@ -34,14 +34,14 @@
             },
             {
                 "wave": 3,
-                "starttime": 17,
+                "starttime": 25,
                 "prefab": "zombie",
-                "Count": 10,
+                "Count": 7,
                 "duration": 1.5
             },
-             {
+            {
                 "wave": 4,
-                "starttime": 25,
+                "starttime": 35.5,
                 "prefab": "wheelZombie",
                 "Count": 2,
                 "duration": 10
@@ -74,7 +74,7 @@
                 "Count": 10,
                 "duration": 1.5
             },
-             {
+            {
                 "wave": 4,
                 "starttime": 25,
                 "prefab": "wheelZombie",
