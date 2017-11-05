@@ -218,7 +218,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
     public void MonsterDie()
     {
         monsterCount.Value--;
-        SGGameData.Instance.GameScore += 100;
+        SGGameData.Instance.GameScore += 500;
     }
     
 }
