@@ -32,7 +32,7 @@ public class SGGameend : SGSingleton<SGGameend> {
     }
 
 	public void Tologinbtn(){
-		SceneManager.LoadScene("LogIn");
+		SceneManager.LoadScene("StageStartEnd");
 
 
 	}
