@@ -157,7 +157,7 @@ public class SGGameManager : SGSingleton<SGGameManager> {
             spawnDis = Observable.Timer(System.TimeSpan.FromSeconds(0f), System.TimeSpan.FromSeconds(duration))
                 .Take(mCount).Subscribe(_ => {
                     GameObject mon = Instantiate<GameObject>(monsterPrefab, CurrentMonsterStartPoint.position, Quaternion.identity, MonsterSpawn);
-                });
+                }).AddTo(this);
 
             currentWaveNum += 1;
         } 
