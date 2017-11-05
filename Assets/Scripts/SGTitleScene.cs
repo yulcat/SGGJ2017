@@ -46,5 +46,8 @@ public class SGTitleScene : MonoBehaviour {
 
 			}
 	}	
-	
+	public void Toinfinity(){
+
+		SceneManager.LoadScene("stage4");
+	}
 }

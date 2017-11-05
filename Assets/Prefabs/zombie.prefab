@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 1
-  moveSpeed: 2
+  moveSpeed: 1.4
   hitEffect: BloodSpit
   monsterType: 0
   sightLength: 3

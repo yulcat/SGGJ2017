@@ -82,5 +82,33 @@
                 "duration": 10
             }
         ]
-    }
+    },
+     {
+        "stage": "stage4",
+        "nextstage": "stage4",
+        "playtime": 999,
+        "waveInfo": [
+            {
+                "wave": 1,
+                "starttime": 0,
+                "prefab": "zombie",
+                "Count": 999,
+                "duration": 1.5
+            },
+            {
+                "wave": 2,
+                "starttime": 20,
+                "prefab": "bigZombie",
+                "Count": 999,
+                "duration": 10
+            },
+             {
+                "wave": 3,
+                "starttime": 25,
+                "prefab": "wheelZombie",
+                "Count": 999,
+                "duration": 20
+            }
+        ]
+     }
 ]

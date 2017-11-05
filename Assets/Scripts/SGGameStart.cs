@@ -69,7 +69,11 @@ public class SGGameStart : SGSingleton<SGGameStart>
                 break;
             case 3:
                 TitleText.text = "마지막 장 : 영원한 사랑";
-                DescriptionText.text = "역경을 견뎌낸 \n\n그들의 사랑은 영원할 것입니다.\n\n더 강략한 몬스터가 등장합니다. \n\n긴장하세요";
+                DescriptionText.text = "역경을 견뎌낸 \n\n\n그들의 사랑은 영원할 것입니다.\n\n사랑을 방해하기 위한 \n\n 더 강력한 몬스터가 등장합니다. \n\n긴장하세요";
+                break;
+            case 4:
+                TitleText.text = "무한 모드";
+                DescriptionText.text = "무한히 오는 몬스터를 막아보세요";
                 break;
         }
 
